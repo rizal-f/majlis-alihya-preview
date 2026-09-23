@@ -101,7 +101,7 @@
     
     <!-- Navbar Yayasan -->
     <nav class="bg-white border-b border-slate-200 sticky top-[53px] z-40 shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-emerald-800 text-amber-300 font-bold flex items-center justify-center text-xl shadow">
             🕌
@@ -111,16 +111,121 @@
             <span class="text-emerald-700 font-medium text-xs block">Kota Bogor — Jawa Barat</span>
           </div>
         </div>
+
+        <!-- Desktop Navigation with Sub-Domain Dropdown -->
         <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
-          <a href="#profil-yayasan" class="text-emerald-700 hover:text-emerald-800">Profil Lembaga</a>
-          <a href="#unit-yayasan" class="hover:text-emerald-700">Unit Sub-Website</a>
-          <a href="#warta-yayasan" class="hover:text-emerald-700">Warta & Berita</a>
-          <a href="#mitra-yayasan" class="hover:text-emerald-700">Kemitraan Mitra</a>
-          <a href="#kontak-yayasan" class="hover:text-emerald-700">Kontak & Lokasi</a>
+          <a href="#profil-yayasan" class="text-slate-700 hover:text-emerald-800 transition">Profil Lembaga</a>
+          
+          <!-- Dropdown Sub-Domain / Unit Lembaga -->
+          <div class="relative inline-block text-left" id="dropdown-parent-yayasan"
+               onmouseenter="openDropdown('nav-dropdown-yayasan')"
+               onmouseleave="closeDropdown('nav-dropdown-yayasan')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-yayasan')" class="flex items-center gap-1.5 py-1 text-emerald-800 hover:text-emerald-950 font-bold transition focus:outline-none cursor-pointer">
+              <span>Unit Sub-Website</span>
+              <span class="bg-emerald-100 text-emerald-800 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-emerald-200">3 Sub</span>
+              <svg class="w-4 h-4 text-emerald-700 transition-transform duration-200" id="arrow-nav-dropdown-yayasan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <!-- Dropdown Menu Box -->
+            <div id="nav-dropdown-yayasan" class="hidden absolute left-0 mt-1 w-80 rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 border border-slate-200 p-2.5 z-50 transition-all duration-200">
+              <div class="px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1 flex items-center justify-between">
+                <span>Pilih Sub-Domain Unit:</span>
+                <span class="text-emerald-600 font-mono text-[9px]">DNS Terintegrasi</span>
+              </div>
+              
+              <!-- Sub 1: Ponpes -->
+              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2.5 rounded-xl hover:bg-emerald-50 transition flex items-start gap-3 group/item cursor-pointer">
+                <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg shrink-0 group-hover/item:scale-110 transition shadow-xs">
+                  🕌
+                </div>
+                <div class="flex-1">
+                  <div class="font-bold text-xs text-slate-900 group-hover/item:text-emerald-800 flex items-center justify-between">
+                    <span>Pondok Pesantren Al-Ihya</span>
+                    <span class="bg-emerald-100 text-emerald-800 text-[9px] font-mono px-1.5 py-0.5 rounded font-bold">pp.</span>
+                  </div>
+                  <span class="text-[11px] text-slate-500 line-clamp-1 block mt-0.5">Tahfidz 30 Juz, Kitab Kuning & Asrama</span>
+                  <span class="text-[10px] text-emerald-700 font-mono font-medium block mt-0.5">pp.majlisalihyabogor.id →</span>
+                </div>
+              </button>
+
+              <!-- Sub 2: Madrasah Diniah -->
+              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2.5 rounded-xl hover:bg-teal-50 transition flex items-start gap-3 group/item cursor-pointer">
+                <div class="w-9 h-9 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center text-lg shrink-0 group-hover/item:scale-110 transition shadow-xs">
+                  📖
+                </div>
+                <div class="flex-1">
+                  <div class="font-bold text-xs text-slate-900 group-hover/item:text-teal-800 flex items-center justify-between">
+                    <span>Madrasah Diniah Al-Ihya</span>
+                    <span class="bg-teal-100 text-teal-800 text-[9px] font-mono px-1.5 py-0.5 rounded font-bold">md.</span>
+                  </div>
+                  <span class="text-[11px] text-slate-500 line-clamp-1 block mt-0.5">Diniyah Takmiliyah, Iqro & Ibadah</span>
+                  <span class="text-[10px] text-teal-700 font-mono font-medium block mt-0.5">md.majlisalihyabogor.id →</span>
+                </div>
+              </button>
+
+              <!-- Sub 3: Majelis Taklim -->
+              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2.5 rounded-xl hover:bg-amber-50 transition flex items-start gap-3 group/item cursor-pointer">
+                <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center text-lg shrink-0 group-hover/item:scale-110 transition shadow-xs">
+                  🎙️
+                </div>
+                <div class="flex-1">
+                  <div class="font-bold text-xs text-slate-900 group-hover/item:text-amber-800 flex items-center justify-between">
+                    <span>Majelis Taklim Al-Ihya</span>
+                    <span class="bg-amber-100 text-amber-800 text-[9px] font-mono px-1.5 py-0.5 rounded font-bold">mt.</span>
+                  </div>
+                  <span class="text-[11px] text-slate-500 line-clamp-1 block mt-0.5">Jadwal Sholat, Live Streaming & Umroh</span>
+                  <span class="text-[10px] text-amber-700 font-mono font-medium block mt-0.5">mt.majlisalihyabogor.id →</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <a href="#warta-yayasan" class="text-slate-700 hover:text-emerald-800 transition">Warta & Berita</a>
+          <a href="#mitra-yayasan" class="text-slate-700 hover:text-emerald-800 transition">Mitra Lembaga</a>
+          <a href="#kontak-yayasan" class="text-slate-700 hover:text-emerald-800 transition">Kontak & Lokasi</a>
         </div>
-        <button onclick="switchView('ppdb')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-sm transition">
-          Portal PPDB Online →
-        </button>
+
+        <div class="flex items-center gap-2">
+          <button onclick="switchView('ppdb')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-sm transition">
+            Portal PPDB Online →
+          </button>
+          
+          <!-- Mobile Hamburger Toggle -->
+          <button onclick="toggleMobileNav('mobile-menu-yayasan')" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu-yayasan" class="hidden lg:hidden border-t border-slate-200 bg-slate-50 px-4 py-3 space-y-2 text-xs">
+        <a href="#profil-yayasan" onclick="closeAllDropdowns()" class="block py-1.5 font-medium text-slate-700 hover:text-emerald-800">Profil Lembaga</a>
+        
+        <div class="py-1 border-t border-slate-200/80">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Sub-Domain Unit:</span>
+          <div class="space-y-1.5 pl-2">
+            <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left py-1 text-slate-800 font-semibold flex items-center justify-between">
+              <span>🕌 Pondok Pesantren</span>
+              <span class="font-mono text-[10px] text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">pp.majlisalihyabogor.id</span>
+            </button>
+            <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left py-1 text-slate-800 font-semibold flex items-center justify-between">
+              <span>📖 Madrasah Diniah</span>
+              <span class="font-mono text-[10px] text-teal-700 bg-teal-100 px-1.5 py-0.5 rounded">md.majlisalihyabogor.id</span>
+            </button>
+            <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left py-1 text-slate-800 font-semibold flex items-center justify-between">
+              <span>🎙️ Majelis Taklim</span>
+              <span class="font-mono text-[10px] text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">mt.majlisalihyabogor.id</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="#warta-yayasan" onclick="closeAllDropdowns()" class="block py-1.5 font-medium text-slate-700 hover:text-emerald-800 border-t border-slate-200/80">Warta & Berita</a>
+        <a href="#mitra-yayasan" onclick="closeAllDropdowns()" class="block py-1.5 font-medium text-slate-700 hover:text-emerald-800">Mitra Lembaga (Insan Kamil)</a>
+        <a href="#kontak-yayasan" onclick="closeAllDropdowns()" class="block py-1.5 font-medium text-slate-700 hover:text-emerald-800">Kontak & Lokasi</a>
       </div>
     </nav>
 
@@ -402,6 +507,39 @@
           <a href="#ponpes-program" class="cursor-pointer hover:text-white">Kurikulum Kitab</a>
           <a href="#ponpes-tertib" class="cursor-pointer hover:text-white">Tata Tertib Santri</a>
           <a href="#ponpes-galeri" class="cursor-pointer hover:text-white">Galeri & Video</a>
+
+          <!-- Dropdown Pindah Sub-Website -->
+          <div class="relative inline-block text-left" id="dropdown-parent-ponpes"
+               onmouseenter="openDropdown('nav-dropdown-ponpes')"
+               onmouseleave="closeDropdown('nav-dropdown-ponpes')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes')" class="flex items-center gap-1 text-emerald-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+              <span>Pindah Unit</span>
+              <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-ponpes" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-ponpes" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🏛️</span>
+                <div>
+                  <div class="font-bold text-xs">Portal Utama Lembaga</div>
+                  <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">📖</span>
+                <div>
+                  <div class="font-bold text-xs">Madrasah Diniah Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">md.majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🎙️</span>
+                <div>
+                  <div class="font-bold text-xs">Majelis Taklim Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">mt.majlisalihyabogor.id</div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
         <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
           PPDB Ponpes 2026/2027 ↗
@@ -558,6 +696,39 @@
           <a href="#md-program" class="hover:text-white">Program Belajar</a>
           <a href="#md-tertib" class="hover:text-white">Tata Tertib Murid</a>
           <a href="#md-galeri" class="hover:text-white">Galeri & Informasi</a>
+
+          <!-- Dropdown Pindah Sub-Website -->
+          <div class="relative inline-block text-left" id="dropdown-parent-md"
+               onmouseenter="openDropdown('nav-dropdown-md')"
+               onmouseleave="closeDropdown('nav-dropdown-md')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-md')" class="flex items-center gap-1 text-teal-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+              <span>Pindah Unit</span>
+              <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-md" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🏛️</span>
+                <div>
+                  <div class="font-bold text-xs">Portal Utama Lembaga</div>
+                  <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🕌</span>
+                <div>
+                  <div class="font-bold text-xs">Pondok Pesantren Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">pp.majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🎙️</span>
+                <div>
+                  <div class="font-bold text-xs">Majelis Taklim Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">mt.majlisalihyabogor.id</div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
         <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
           Daftar Santri Madrasah (md.) ↗
@@ -691,6 +862,39 @@
           <a href="#mt-live" class="hover:text-amber-300">Live Streaming</a>
           <a href="#mt-rihlah" class="hover:text-amber-300">Rihlah & Umroh</a>
           <a href="#mt-agenda" class="hover:text-amber-300">Agenda Kajian</a>
+
+          <!-- Dropdown Pindah Sub-Website -->
+          <div class="relative inline-block text-left" id="dropdown-parent-majlis"
+               onmouseenter="openDropdown('nav-dropdown-majlis')"
+               onmouseleave="closeDropdown('nav-dropdown-majlis')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-majlis')" class="flex items-center gap-1 text-amber-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+              <span>Pindah Unit</span>
+              <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-majlis" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-majlis" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🏛️</span>
+                <div>
+                  <div class="font-bold text-xs">Portal Utama Lembaga</div>
+                  <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">🕌</span>
+                <div>
+                  <div class="font-bold text-xs">Pondok Pesantren Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">pp.majlisalihyabogor.id</div>
+                </div>
+              </button>
+              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+                <span class="text-base">📖</span>
+                <div>
+                  <div class="font-bold text-xs">Madrasah Diniah Al-Ihya</div>
+                  <div class="text-[10px] text-slate-400 font-mono">md.majlisalihyabogor.id</div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="text-xs font-semibold text-amber-200">
           📍 Aula Majelis Al-Ihya Bogor
@@ -1328,6 +1532,49 @@
   <!-- JAVASCRIPT LOGIC INTERAKTIF -->
   <!-- ======================================================== -->
   <script>
+        // Dropdown Handlers
+    function openDropdown(id) {
+      const el = document.getElementById(id);
+      const arrow = document.getElementById('arrow-' + id);
+      if (el) el.classList.remove('hidden');
+      if (arrow) arrow.classList.add('rotate-180');
+    }
+
+    function closeDropdown(id) {
+      const el = document.getElementById(id);
+      const arrow = document.getElementById('arrow-' + id);
+      if (el) el.classList.add('hidden');
+      if (arrow) arrow.classList.remove('rotate-180');
+    }
+
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isHidden = el.classList.contains('hidden');
+      closeAllDropdowns();
+      if (isHidden) {
+        openDropdown(id);
+      }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('[id^="nav-dropdown-"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="arrow-nav-dropdown-"]').forEach(arrow => arrow.classList.remove('rotate-180'));
+      document.querySelectorAll('[id^="mobile-menu-"]').forEach(m => m.classList.add('hidden'));
+    }
+
+    function toggleMobileNav(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('[id^="dropdown-parent-"]') && !e.target.closest('[id^="nav-dropdown-"]') && !e.target.closest('button[onclick*="toggleMobileNav"]')) {
+        closeAllDropdowns();
+      }
+    });
+
     // View Switcher Function
     function switchView(viewName) {
       // Hide all views
