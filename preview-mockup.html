@@ -491,47 +491,114 @@
   <div id="view-ponpes" class="view-container flex-1 hidden">
     
     <!-- Navbar Ponpes -->
-    <nav class="bg-emerald-900 text-white sticky top-[53px] z-40 shadow-md">
+    <nav class="bg-emerald-950 text-white sticky top-[53px] z-40 shadow-md border-b border-emerald-800">
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        
+        <!-- Brand Ponpes -->
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-lg bg-emerald-800 text-amber-300 font-bold flex items-center justify-center text-lg border border-emerald-700">
+          <div class="w-9 h-9 rounded-lg bg-emerald-800 text-amber-300 font-bold flex items-center justify-center text-lg border border-emerald-700 shadow-sm">
             🕌
           </div>
           <div>
-            <span class="font-bold text-white text-base leading-tight block">PONDOK PESANTREN AL-IHYA</span>
+            <span class="font-extrabold text-white text-base leading-tight block">PONDOK PESANTREN AL-IHYA</span>
             <span class="text-emerald-300 text-[11px] font-mono block">pp.majlisalihyabogor.id</span>
           </div>
         </div>
-        <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-emerald-100">
-          <a href="#ponpes-profil" class="text-amber-300 cursor-pointer">Profil Asrama</a>
-          <a href="#ponpes-program" class="cursor-pointer hover:text-white">Kurikulum Kitab</a>
-          <a href="#ponpes-tertib" class="cursor-pointer hover:text-white">Tata Tertib Santri</a>
-          <a href="#ponpes-galeri" class="cursor-pointer hover:text-white">Galeri & Video</a>
+
+        <!-- Desktop Navigation Ponpes -->
+        <div class="hidden lg:flex items-center gap-5 text-xs font-semibold text-emerald-100">
+          
+          <!-- Dropdown Profil -->
+          <div class="relative inline-block text-left" id="dropdown-parent-ponpes-profil"
+               onmouseenter="openDropdown('nav-dropdown-ponpes-profil')"
+               onmouseleave="closeDropdown('nav-dropdown-ponpes-profil')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes-profil')" class="flex items-center gap-1 text-emerald-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Profil</span>
+              <svg class="w-3.5 h-3.5 text-emerald-400" id="arrow-nav-dropdown-ponpes-profil" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-ponpes-profil" class="hidden absolute left-0 mt-1 w-56 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#ponpes-profil" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Sejarah & Visi Misi</div>
+                <span class="text-[10px] text-slate-500">Nilai salafiyyah & kepesantrenan</span>
+              </a>
+              <a href="#ponpes-pengurus" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Dewan Pengasuh & Asatidz</div>
+                <span class="text-[10px] text-slate-500">Kyai dan asatidz pembina santri</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dropdown Pendidikan -->
+          <div class="relative inline-block text-left" id="dropdown-parent-ponpes-edu"
+               onmouseenter="openDropdown('nav-dropdown-ponpes-edu')"
+               onmouseleave="closeDropdown('nav-dropdown-ponpes-edu')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes-edu')" class="flex items-center gap-1 text-emerald-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Pendidikan</span>
+              <svg class="w-3.5 h-3.5 text-emerald-400" id="arrow-nav-dropdown-ponpes-edu" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-ponpes-edu" class="hidden absolute left-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#ponpes-program" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Program Unggulan</div>
+                <span class="text-[10px] text-slate-500">Tahfidz 30 Juz, Kitab Kuning & Bilingual</span>
+              </a>
+              <a href="#ponpes-kurikulum" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Kurikulum Terpadu</div>
+                <span class="text-[10px] text-slate-500">Integrasi Salafiyah & Kemenag MTs/MA</span>
+              </a>
+              <a href="#ponpes-jadwal" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Jadwal Harian Santri</div>
+                <span class="text-[10px] text-slate-500">Rutinitas kegiatan 24 jam</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dropdown Kehidupan Santri -->
+          <div class="relative inline-block text-left" id="dropdown-parent-ponpes-life"
+               onmouseenter="openDropdown('nav-dropdown-ponpes-life')"
+               onmouseleave="closeDropdown('nav-dropdown-ponpes-life')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes-life')" class="flex items-center gap-1 text-emerald-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Kehidupan Santri</span>
+              <svg class="w-3.5 h-3.5 text-emerald-400" id="arrow-nav-dropdown-ponpes-life" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-ponpes-life" class="hidden absolute left-0 mt-1 w-56 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#ponpes-fasilitas" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Fasilitas Asrama</div>
+                <span class="text-[10px] text-slate-500">Kamar, masjid, lab & sarana santri</span>
+              </a>
+              <a href="#ponpes-tertib" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Tata Tertib Santri</div>
+                <span class="text-[10px] text-slate-500">Kedisiplinan & adab thalabul 'ilmi</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#ponpes-prestasi" class="hover:text-white transition">Prestasi & Alumni</a>
+          <a href="#ponpes-galeri" class="hover:text-white transition">Galeri & Berita</a>
 
           <!-- Dropdown Pindah Sub-Website -->
           <div class="relative inline-block text-left" id="dropdown-parent-ponpes"
                onmouseenter="openDropdown('nav-dropdown-ponpes')"
                onmouseleave="closeDropdown('nav-dropdown-ponpes')">
-            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes')" class="flex items-center gap-1 text-emerald-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-ponpes')" class="flex items-center gap-1 text-amber-300 hover:text-amber-200 font-bold focus:outline-none cursor-pointer">
               <span>Pindah Unit</span>
               <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-ponpes" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </button>
             <div id="nav-dropdown-ponpes" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
-              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🏛️</span>
                 <div>
                   <div class="font-bold text-xs">Portal Utama Lembaga</div>
                   <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">📖</span>
                 <div>
                   <div class="font-bold text-xs">Madrasah Diniah Al-Ihya</div>
                   <div class="text-[10px] text-slate-400 font-mono">md.majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🎙️</span>
                 <div>
                   <div class="font-bold text-xs">Majelis Taklim Al-Ihya</div>
@@ -541,87 +608,383 @@
             </div>
           </div>
         </div>
-        <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
-          PPDB Ponpes 2026/2027 ↗
-        </button>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2">
+          <!-- Button Tautan ke ePesantren (Aplikasi Eksternal) -->
+          <a href="#ponpes-epesantren" class="hidden sm:inline-flex items-center gap-1.5 bg-emerald-800 hover:bg-emerald-700 text-emerald-100 font-medium text-xs px-3 py-1.5 rounded-lg border border-emerald-600 transition shadow-xs">
+            <span>📲</span> ePesantren Login ↗
+          </a>
+          <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded-lg shadow transition cursor-pointer">
+            PPDB Santri 2026/2027 ↗
+          </button>
+          
+          <!-- Mobile Toggle -->
+          <button onclick="toggleMobileNav('mobile-menu-ponpes')" class="lg:hidden p-1.5 rounded-lg text-emerald-200 hover:bg-emerald-800 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer Ponpes -->
+      <div id="mobile-menu-ponpes" class="hidden lg:hidden border-t border-emerald-800 bg-emerald-950 px-4 py-3 space-y-2 text-xs">
+        <a href="#ponpes-profil" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Profil & Visi Misi</a>
+        <a href="#ponpes-program" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Program Unggulan & Kurikulum</a>
+        <a href="#ponpes-jadwal" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Jadwal Rutinitas Santri</a>
+        <a href="#ponpes-fasilitas" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Fasilitas Asrama & Tata Tertib</a>
+        <a href="#ponpes-prestasi" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Prestasi Santri & Alumni</a>
+        <a href="#ponpes-galeri" onclick="closeAllDropdowns()" class="block py-1 text-emerald-100">Galeri Foto & Video</a>
+        <a href="#ponpes-epesantren" onclick="closeAllDropdowns()" class="block py-1 text-amber-300 font-semibold">📲 ePesantren (Aplikasi Eksternal) ↗</a>
+        
+        <div class="pt-2 border-t border-emerald-800/80">
+          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Pindah Unit:</span>
+          <div class="space-y-1 pl-2">
+            <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🏛️ Portal Utama (majlisalihyabogor.id)</button>
+            <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left py-1 text-white">📖 Madrasah Diniah (md.)</button>
+            <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🎙️ Majelis Taklim (mt.)</button>
+          </div>
+        </div>
       </div>
     </nav>
 
-    <!-- Ponpes Banner -->
-    <div class="bg-gradient-to-r from-emerald-900 to-emerald-800 text-white py-12 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-amber-400/30 mb-3">
-          🎓 Pendaftaran Santri Baru Telah Dibuka
+    <!-- SECTION 1: HERO BANNER PONPES -->
+    <div class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 text-white py-14 sm:py-18 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d1fae5_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 text-xs font-bold px-3.5 py-1.5 rounded-full border border-amber-400/30 mb-4 shadow-sm">
+          <span>🎓</span>
+          <span>Penerimaan Santri Baru (PPDB) Tahun Ajaran 2026/2027 Telah Dibuka</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">Pondok Pesantren Al-Ihya Bogor</h1>
-        <p class="text-emerald-100 text-sm max-w-xl mx-auto mb-6">
-          Memadukan keaslian tradisi keilmuan Islam (Salafiyyah) dengan wawasan sains dan bahasa internasional dalam suasana asrama yang nyaman dan asri.
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+          Pondok Pesantren Al-Ihya Bogor
+        </h1>
+        <p class="text-emerald-100 text-xs sm:text-base max-w-2xl mx-auto mb-6 leading-relaxed font-normal">
+          Mencetak generasi santri yang mutafaqqih fiddin, hafidz Al-Qur'an 30 Juz, menguasai khazanah Kitab Kuning, serta cakap berbahasa Arab dan Inggris dalam naungan tradisi salafiyyah yang asri.
         </p>
-        <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-6 py-2.5 rounded-lg shadow-md text-sm">
-          Daftar Santri Baru Sekarang (PPDB) →
-        </button>
-      </div>
-    </div>
-
-    <!-- Ponpes Programs -->
-    <div id="ponpes-program" class="max-w-6xl mx-auto px-4 py-10">
-      <h3 class="text-lg font-bold text-slate-900 mb-6 text-center">Program Unggulan Pesantren</h3>
-      <div class="grid sm:grid-cols-3 gap-6">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">📖</div>
-          <h4 class="font-bold text-slate-900 text-sm mb-1">Tahfidz Al-Qur'an Bersanad</h4>
-          <p class="text-slate-600 text-xs leading-relaxed">Bimbingan hafalan 30 Juz secara intensif dengan metode mutqin dan tahsin standar timur tengah.</p>
-        </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">📚</div>
-          <h4 class="font-bold text-slate-900 text-sm mb-1">Kajian Kitab Kuning Turats</h4>
-          <p class="text-slate-600 text-xs leading-relaxed">Pengkajian Fiqih, Nahwu, Shorof, Tauhid, Hadits, dan Akhlak berbasis kitab turats para ulama mu'tabar.</p>
-        </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">🗣️</div>
-          <h4 class="font-bold text-slate-900 text-sm mb-1">Bilingual Arabic & English</h4>
-          <p class="text-slate-600 text-xs leading-relaxed">Muhadatsah harian dan pembiasaan percakapan bahasa Arab dan Inggris untuk santri asrama.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow-md text-xs sm:text-sm transition cursor-pointer">
+            Daftar Santri Baru Sekarang (PPDB) →
+          </button>
+          <a href="#ponpes-epesantren" class="bg-emerald-800/80 hover:bg-emerald-700 text-emerald-100 font-semibold px-5 py-3 rounded-xl border border-emerald-600 text-xs sm:text-sm transition flex items-center gap-2">
+            <span>📲</span> Portal ePesantren ↗
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Tata Tertib Santri Ponpes (Fitur Tambahan Kompetitor) -->
-    <div id="ponpes-tertib" class="max-w-6xl mx-auto px-4 py-8">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">📋</span>
+    <!-- SECTION 2: PROFIL PESANTREN & PENGURUS -->
+    <section id="ponpes-profil" class="max-w-6xl mx-auto px-4 py-12">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
           <div>
-            <h3 class="text-lg font-bold text-slate-900">Tata Tertib & Kedisiplinan Santri Asrama</h3>
-            <p class="text-slate-500 text-xs">Menjaga lingkungan belajar yang kondusif, beradab, dan penuh berkah</p>
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider block mb-2">Profil & Sejarah</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Sejarah Pendirian & Visi Misi Pesantren</h2>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Pondok Pesantren Al-Ihya didirikan sebagai pusat pengkaderan ulama dan cendekiawan muslim yang berpegang teguh pada Al-Qur'an, As-Sunnah, dan paham Ahlussunnah wal Jama'ah. Berlokasi di Kota Bogor dengan lingkungan asrama yang tenang dan kondusif bagi penuntut ilmu.
+            </p>
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Visi:</strong> Menjadi pesantren rujukan nasional dalam pencetakan penghafal Al-Qur'an dan mutafaqqih fiddin yang berakhlak karimah.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Misi:</strong> Menyelenggarakan tahfidz mutqin, mentradisikan kajian kitab kuning turats, serta membekali santri keterampilan bahasa dan teknologi.</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-            <span class="font-bold text-emerald-800 block mb-1">1. Sholat Berjamaah</span>
-            <p class="text-slate-600 leading-relaxed">Wajib mengikuti sholat fardhu berjamaah 5 waktu di masjid pondok dan qiyamul lail berjamaah.</p>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-            <span class="font-bold text-emerald-800 block mb-1">2. Disiplin Taklim & Halaqah</span>
-            <p class="text-slate-600 leading-relaxed">Hadir tepat waktu dalam setiap sesi pengajian kitab kuning dan halaqah setoran tahfidz.</p>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-            <span class="font-bold text-emerald-800 block mb-1">3. Larangan Smartphone</span>
-            <p class="text-slate-600 leading-relaxed">Santri dilarang membawa smartphone/gawai pribadi di asrama demi konsentrasi penuh dalam belajar.</p>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-            <span class="font-bold text-emerald-800 block mb-1">4. Adab & Akhlaq</span>
-            <p class="text-slate-600 leading-relaxed">Menjaga tata krama santun kepada dewan kyai, dewan asatidz, pengurus, serta sesama rekan santri.</p>
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-3 text-center">Dewan Pengasuh & Dewan Asatidz</h4>
+            <div class="space-y-3 text-xs">
+              <div class="bg-white p-3 rounded-xl border border-slate-200 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-800 text-amber-300 font-bold flex items-center justify-center text-sm shrink-0">
+                  KH
+                </div>
+                <div>
+                  <h5 class="font-bold text-slate-900">KH. Dewan Pengasuh Al-Ihya</h5>
+                  <span class="text-[11px] text-slate-500">Pimpinan & Pengasuh Umum Pesantren</span>
+                </div>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-teal-800 text-teal-200 font-bold flex items-center justify-center text-sm shrink-0">
+                  Ust
+                </div>
+                <div>
+                  <h5 class="font-bold text-slate-900">Dewan Asatidz Tahfidz & Kitab</h5>
+                  <span class="text-[11px] text-slate-500">Alumni Timur Tengah & Pesantren Salaf Jawa Timur</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Galeri Foto & Video YouTube Pesantren -->
-    <div id="ponpes-galeri" class="max-w-6xl mx-auto px-4 py-8">
+    <!-- SECTION 3: PENDIDIKAN, PROGRAM UNGGULAN & JADWAL HARIAN -->
+    <section id="ponpes-program" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Kurikulum & Program</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Pendidikan & Program Unggulan</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">Sinergi kurikulum salafiyyah dan formal untuk mencetak santri unggul</p>
+      </div>
+
+      <!-- 3 Program Unggulan -->
+      <div class="grid sm:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl mb-3">
+            📖
+          </div>
+          <span class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-200">Program Unggulan 1</span>
+          <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Tahfidzul Qur'an 30 Juz Bersanad</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Metode mutqin talaqqi dengan target hafalan terukur dan pengujian berkala hingga pengambilan sanad qira'ah.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl mb-3">
+            📚
+          </div>
+          <span class="bg-amber-50 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-200">Program Unggulan 2</span>
+          <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Kajian Kitab Kuning Turats</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Pengkajian mendalam kaidah Nahwu (Jurumiyyah, Imrithi, Alfiyah), Shorof, Fiqih (Safinah, Taqrib, Fathul Qorib), Tauhid, dan Hadits Arbain.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center text-2xl mb-3">
+            🗣️
+          </div>
+          <span class="bg-teal-50 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded border border-teal-200">Program Unggulan 3</span>
+          <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Bilingual Arabic & English</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Muhadatsah harian, pemberian kosakata disiplin asrama, dan latihan khutbah tiga bahasa (Arab, Inggris, Indonesia).
+          </p>
+        </div>
+      </div>
+
+      <!-- Jadwal Keseharian Santri (Timeline) -->
+      <div id="ponpes-jadwal" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">⏰</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900">Jadwal Pendidikan & Rutinitas Keseharian Santri (24 Jam)</h3>
+            <p class="text-slate-500 text-xs">Pola hidup disiplin, istiqomah dalam ibadah, belajar, dan istirahat santri mukim</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">03.30 - 05.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Qiyamul Lail & Sholat Subuh Berjamaah</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Sholat tahajjud, witir, istighfar, dan dzikir ba'da sholat.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">05.00 - 06.30 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Halaqah Tahfidz & Setoran Ziyadah</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Setoran hafalan baru bersama asatidz pembina halaqah.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">07.00 - 12.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Sekolah Formal & Bahasa Asing</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Pembelajaran kurikulum MTs / MA di ruang kelas.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">12.00 - 15.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Sholat Dzuhur, Makan Siang & Qoilulah</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Istirahat siang untuk memulihkan kebugaran santri.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">15.30 - 17.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Sholat Ashar & Taklim Kitab Kuning</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Kajian Fiqih, Nahwu-Shorof, dan Akhlak santri.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="font-mono text-emerald-700 font-bold block">18.00 - 22.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Maghrib, Muroja'ah, Isya & Belajar Malam</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Muthola'ah mandiri sebelum jam malam istirahat (22.00 WIB).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: KEHIDUPAN SANTRI, FASILITAS ASRAMA & TATA TERTIB -->
+    <section id="ponpes-fasilitas" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <div class="mb-8">
+          <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider block">Sarana & Prasarana</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Kehidupan Santri & Fasilitas Asrama</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Dukungan lingkungan asrama yang bersih, asri, aman, dan memadai</p>
+        </div>
+
+        <!-- Grid 6 Fasilitas -->
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">🕌</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Masjid Jami' Al-Ihya</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Pusat peribadatan sholat berjamaah dan halaqah Al-Qur'an.</p>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">🏢</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Gedung Asrama Putra & Putri</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Kamar terpisah dengan ventilasi baik, ranjang tingkat, dan lemari.</p>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">📚</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Maktabah / Perpustakaan Kitab</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Koleksi kitab rujukan ulama salaf dan literatur keislaman.</p>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">🍽️</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Dapur & Ruang Makan Higienis</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Penyediaan menu makan santri 3 kali sehari yang bernutrisi.</p>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">🏥</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Poskestren (Kesehatan Santri)</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Layanan pertolongan pertama dan pemeriksaan kesehatan santri.</p>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-3">
+            <span class="text-2xl">⚽</span>
+            <div>
+              <h5 class="font-bold text-xs text-slate-900">Sarana Olahraga Santri</h5>
+              <p class="text-[11px] text-slate-500 mt-0.5">Lapangan futsal, bulutangkis, tenis meja, dan memanah.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tata Tertib Santri Ponpes -->
+        <div id="ponpes-tertib" class="border-t border-slate-200 pt-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📋</span>
+            <h4 class="font-bold text-sm text-slate-900">Tata Tertib & Disiplin Asrama Santri</h4>
+          </div>
+          <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+              <span class="font-bold text-emerald-900 block mb-1">1. Sholat Berjamaah</span>
+              <p class="text-slate-600 leading-relaxed text-[11px]">Wajib sholat fardhu 5 waktu di masjid dan qiyamul lail berjamaah.</p>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+              <span class="font-bold text-emerald-900 block mb-1">2. Disiplin Taklim</span>
+              <p class="text-slate-600 leading-relaxed text-[11px]">Hadir tepat waktu di setiap halaqah tahfidz dan pengajian kitab kuning.</p>
+            </div>
+            <div class="p-3 bg-rose-50 rounded-xl border border-rose-100">
+              <span class="font-bold text-rose-900 block mb-1">3. Larangan Smartphone</span>
+              <p class="text-slate-600 leading-relaxed text-[11px]">Dilarang membawa smartphone/gawai pribadi di asrama demi fokus belajar.</p>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+              <span class="font-bold text-emerald-900 block mb-1">4. Akhlak & Adab</span>
+              <p class="text-slate-600 leading-relaxed text-[11px]">Menjaga kesantunan kepada kyai, asatidz, pengurus, dan rekan santri.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: PRESTASI SANTRI & TESTIMONI ALUMNI -->
+    <section id="ponpes-prestasi" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Prestasi Santri -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">🏆</span>
+              <div>
+                <h3 class="font-bold text-base text-slate-900">Prestasi Santri Al-Ihya</h3>
+                <p class="text-slate-500 text-xs">Bukti dedikasi dalam kompetisi keagamaan & akademik</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200 flex items-center gap-3">
+                <span class="text-xl">🥇</span>
+                <div>
+                  <h5 class="font-bold text-slate-900">Juara 1 MTQ Kota Bogor (Cabang Tahfidz 10 Juz)</h5>
+                  <span class="text-[11px] text-slate-500">Tingkat Pelajar Kota Bogor Tahun 2025/2026</span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
+                <span class="text-xl">🥈</span>
+                <div>
+                  <h5 class="font-bold text-slate-900">Juara 2 Musabaqah Qira'atil Kutub (MQK) Fiqih</h5>
+                  <span class="text-[11px] text-slate-500">Tingkat Pesantren Provinsi Jawa Barat</span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
+                <span class="text-xl">🥉</span>
+                <div>
+                  <h5 class="font-bold text-slate-900">Juara Harapan 1 Pidato Bahasa Arab</h5>
+                  <span class="text-[11px] text-slate-500">Pekan Bahasa Pesantren Se-Jabodetabek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimoni Alumni -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">🎓</span>
+              <div>
+                <h3 class="font-bold text-base text-slate-900">Kiprah & Testimoni Alumni</h3>
+                <p class="text-slate-500 text-xs">Jejak langkah alumni di perguruan tinggi dalam & luar negeri</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-slate-600 italic text-[11px] mb-2 leading-relaxed">
+                  "Bekal bahasa Arab dan kajian kitab kuning di Al-Ihya menjadi modal sangat berharga bagi saya untuk beradaptasi dan berprestasi di Universitas Al-Azhar Kairo."
+                </p>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-800 text-white font-bold text-[10px] flex items-center justify-center">MF</div>
+                  <div>
+                    <span class="font-bold text-slate-900 block text-[11px]">Ust. Muhammad Fauzi, Lc.</span>
+                    <span class="text-[10px] text-slate-400">Alumni 2019 • Mahasiswa Univ. Al-Azhar Kairo, Mesir</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-slate-600 italic text-[11px] mb-2 leading-relaxed">
+                  "Menghafal 30 Juz di asrama Al-Ihya membentuk kedisiplinan dan mental baja yang sangat membantu saya menyelesaikan studi kedokteran."
+                </p>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-teal-800 text-white font-bold text-[10px] flex items-center justify-center">SN</div>
+                  <div>
+                    <span class="font-bold text-slate-900 block text-[11px]">dr. Siti Nurhaliza</span>
+                    <span class="text-[10px] text-slate-400">Alumni 2020 • Dokter Muda & Hafidzah 30 Juz</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: GALERI FOTO & VIDEO DOCUMENTATION -->
+    <section id="ponpes-galeri" class="max-w-6xl mx-auto px-4 py-8">
       <div class="flex items-center justify-between mb-4">
         <div>
           <h3 class="text-lg font-bold text-slate-900">Galeri Foto & Dokumentasi Video</h3>
-          <p class="text-slate-500 text-xs">Dokumentasi suasana kehidupan asrama dan kegiatan santri</p>
+          <p class="text-slate-500 text-xs">Momen kegiatan santri, perayaan haul, dan wisuda Al-Qur'an</p>
         </div>
         <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded">Update Terkini</span>
       </div>
@@ -654,20 +1017,170 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Tautan Silang (Cross-Links) Antar-Unit -->
+    <!-- SECTION 7: INFORMASI, PENGUMUMAN & BERITA -->
+    <section id="ponpes-informasi" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Pengumuman Santri -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📢</span>
+            <h4 class="font-bold text-sm text-slate-900">Pengumuman Akademik & Kalender Asrama</h4>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+              <span class="text-[10px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.2 rounded">Penting</span>
+              <h5 class="font-bold text-slate-900 mt-1">Jadwal Ujian Lisan Kitab Kuning Semester Ganjil</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Ujian imtihan syafahi akan diselenggarakan mulai tanggal 20 Oktober 2026.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] bg-slate-200 text-slate-700 font-bold px-1.5 py-0.2 rounded">Agenda</span>
+              <h5 class="font-bold text-slate-900 mt-1">Agenda Kepulangan Santri Libur Maulid Nabi</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Penjemputan santri oleh wali santri dapat dilakukan mulai hari Jumat pukul 14.00 WIB.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Berita Ponpes -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📰</span>
+            <h4 class="font-bold text-sm text-slate-900">Warta Kegiatan Pondok Pesantren</h4>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-emerald-700 font-semibold">15 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Wisuda Tahfidz Al-Qur'an Angkatan Ke-VIII Berlangsung Khidmat</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Sebanyak 45 santri berhasil menyelesaikan hafalan 30 Juz disaksikan dewan asatidz.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-emerald-700 font-semibold">10 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Penyelenggaraan Bahtsul Masa'il Santri Tingkat Wustha</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Melatih nalar kritis santri dalam memecahkan problematika fiqih kontemporer.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 8: PENDAFTARAN SANTRI BARU (PPDB ONLINE) -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-900 text-white rounded-2xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="inline-block bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full mb-3">
+              TAHUN AJARAN 2026/2027
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Pendaftaran Santri Baru (PPDB Online)</h3>
+            <p class="text-emerald-100 text-xs sm:text-sm leading-relaxed mb-4">
+              Alur pendaftaran transparan dan mudah melalui sistem online: Pengisian Formulir → Unggah Berkas Persyaratan → Ujian Seleksi Baca Al-Qur'an & Wawancara → Pengumuman & Cetak Kartu Santri.
+            </p>
+            <div class="space-y-1.5 text-xs text-emerald-200 mb-6">
+              <div>📄 <strong>Syarat:</strong> Scan KK, Akta Kelahiran, Ijazah/SKL, dan Pas Foto Santri.</div>
+              <div>📅 <strong>Gelombang 1:</strong> 1 Oktober - 30 November 2026</div>
+              <div>💳 <strong>Biaya Pendaftaran:</strong> Rp 250.000,- (Termasuk Modul Tes & Uji Masuk)</div>
+            </div>
+            <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow transition text-xs sm:text-sm cursor-pointer">
+              Buka Formulir Pendaftaran Online (PPDB) →
+            </button>
+          </div>
+
+          <div class="bg-emerald-800/60 p-5 rounded-2xl border border-emerald-600 text-xs space-y-3">
+            <h5 class="font-bold text-amber-300 text-sm">Alur 4 Langkah Pendaftaran:</h5>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">1</span>
+              <span>Isi Data Santri & Pilih Jalur Pendaftaran</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">2</span>
+              <span>Isi Data Orang Tua / Wali & Kontak WhatsApp</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">3</span>
+              <span>Unggah Dokumen Berkas Pendukung (PDF/Foto)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-xs">4</span>
+              <span>Cetak Kartu Ujian Ber-Barcode Siap Pakai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: INTEGRASI SISTEM ePESANTREN & KONTAK -->
+    <section id="ponpes-epesantren" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        
+        <!-- Card Khusus ePesantren -->
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md mb-8">
+          <div class="space-y-2 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-xs font-semibold border border-blue-500/30">
+              📲 Aplikasi Manajemen Pesantren Terpadu
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold">Portal Akademik & Wali Santri (ePesantren)</h3>
+            <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
+              Memudahkan wali santri memantau perkembangan hafalan Al-Qur'an, presensi kegiatan harian asrama, laporan nilai raport, serta tagihan syahriyah (SPP) secara transparan dari smartphone.
+            </p>
+          </div>
+          <div class="shrink-0 flex flex-wrap gap-3">
+            <a href="https://epesantren.co.id" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs px-5 py-3 rounded-xl shadow transition flex items-center gap-2">
+              Login Aplikasi ePesantren ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Kontak & Peta Ponpes -->
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider block mb-1">Sekretariat Asrama</span>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-2">Kontak & Lokasi Pondok Pesantren</h3>
+            <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+              Kunjungan silaturahmi wali santri dan survei asrama dibuka setiap hari kerja dengan konfirmasi sekretariat.
+            </p>
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <span>📍</span>
+                <span>Komplek Pondok Pesantren Al-Ihya, Jl. KH. Tubagus Muhammad Falak, Kota Bogor</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>📞</span>
+                <span>Hotline Asrama: 0812-XXXX-XXXX (Ustadz Bagian Pengasuhan)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>✉️</span>
+                <span>Email Ponpes: ponpes@majlisalihyabogor.id</span>
+              </div>
+            </div>
+          </div>
+          <div class="h-44 bg-slate-100 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-center p-4">
+            <span class="text-3xl mb-1">🗺️</span>
+            <span class="font-bold text-slate-800 text-xs sm:text-sm">Peta Lokasi Asrama Pesantren</span>
+            <span class="text-slate-500 text-[11px] mt-0.5">Terintegrasi Google Maps & Petunjuk Arah</span>
+            <a href="https://maps.google.com" target="_blank" class="mt-2.5 text-xs bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800">
+              Buka Peta Google Maps ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 10: TAUTAN SILANG (CROSS-LINKS) -->
     <div class="max-w-6xl mx-auto px-4 py-8 border-t border-slate-200">
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
         <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
         <div class="flex flex-wrap gap-2">
-          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
             🏛️ Portal Utama
           </button>
-          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
             📖 Madrasah Diniah (md.)
           </button>
-          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
             🎙️ Majelis Taklim (mt.)
           </button>
         </div>
