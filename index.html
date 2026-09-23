@@ -58,7 +58,7 @@
         <div>
           <div class="font-bold text-slate-100 text-sm tracking-tight flex items-center gap-1.5">
             MRF-ID <span class="text-emerald-400 font-normal">| Live Prototype Preview</span>
-            <span class="bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] font-mono border border-amber-300 shadow-sm">v1.2 [PONPES UPDATED]</span>
+            <span class="bg-teal-400 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] font-mono border border-teal-300 shadow-sm">v1.3 [MD UPDATED]</span>
           </div>
           <p class="text-slate-400 text-[11px]">Simulasi Interaktif Ekosistem Website Majlis Al-Ihya Bogor</p>
         </div>
@@ -1440,46 +1440,117 @@
   <!-- ======================================================== -->
   <div id="view-tpa" class="view-container flex-1 hidden">
     
-    <nav class="bg-teal-800 text-white sticky top-[53px] z-40 shadow-md">
+    <!-- Navbar Madrasah Diniah -->
+    <nav class="bg-teal-950 text-white sticky top-[53px] z-40 shadow-md border-b border-teal-800">
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        
+        <!-- Brand Madrasah -->
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-lg bg-teal-700 text-amber-300 font-bold flex items-center justify-center text-lg">
+          <div class="w-9 h-9 rounded-lg bg-teal-800 text-amber-300 font-bold flex items-center justify-center text-lg border border-teal-700 shadow-sm">
             📖
           </div>
           <div>
-            <span class="font-bold text-white text-base leading-tight block">MADRASAH DINIAH AL-IHYA</span>
-            <span class="text-teal-200 text-[11px] font-mono block">md.majlisalihyabogor.id</span>
+            <span class="font-extrabold text-white text-base leading-tight block">MADRASAH DINIAH AL-IHYA</span>
+            <span class="text-teal-300 text-[11px] font-mono block">md.majlisalihyabogor.id</span>
           </div>
         </div>
-        <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-teal-100">
-          <a href="#md-program" class="hover:text-white">Program Belajar</a>
-          <a href="#md-tertib" class="hover:text-white">Tata Tertib Murid</a>
-          <a href="#md-galeri" class="hover:text-white">Galeri & Informasi</a>
+
+        <!-- Desktop Navigation Madrasah -->
+        <div class="hidden xl:flex items-center gap-5 text-xs font-semibold text-teal-100">
+          
+          <!-- Dropdown Profil -->
+          <div class="relative inline-block text-left" id="dropdown-parent-md-profil"
+               onmouseenter="openDropdown('nav-dropdown-md-profil')"
+               onmouseleave="closeDropdown('nav-dropdown-md-profil')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-md-profil')" class="flex items-center gap-1 text-teal-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Profil</span>
+              <svg class="w-3.5 h-3.5 text-teal-400" id="arrow-nav-dropdown-md-profil" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-md-profil" class="hidden absolute left-0 mt-1 w-60 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#md-profil" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Sejarah & Visi Misi</div>
+                <span class="text-[10px] text-slate-500">Pendidikan Al-Qur'an anak sejak dini</span>
+              </a>
+              <a href="#md-pengurus" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Profil Pengurus & Dewan Guru</div>
+                <span class="text-[10px] text-slate-500">Kepala madrasah & asatidz pembina</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dropdown Program Pendidikan -->
+          <div class="relative inline-block text-left" id="dropdown-parent-md-edu"
+               onmouseenter="openDropdown('nav-dropdown-md-edu')"
+               onmouseleave="closeDropdown('nav-dropdown-md-edu')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-md-edu')" class="flex items-center gap-1 text-teal-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Program Belajar</span>
+              <svg class="w-3.5 h-3.5 text-teal-400" id="arrow-nav-dropdown-md-edu" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-md-edu" class="hidden absolute left-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#md-program" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Jenjang Tingkatan Belajar</div>
+                <span class="text-[10px] text-slate-500">Kelas A (Iqro 1-3), B (Iqro 4-6), C (Al-Qur'an)</span>
+              </a>
+              <a href="#md-kurikulum" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Kurikulum Diniyah Takmiliyah</div>
+                <span class="text-[10px] text-slate-500">Tajwid, Fiqih Ibadah & Hafalan Doa</span>
+              </a>
+              <a href="#md-jadwal" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Jadwal Pembelajaran Sore</div>
+                <span class="text-[10px] text-slate-500">Senin - Kamis (15.30 - 17.00 WIB)</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#md-tertib" class="hover:text-white transition">Tata Tertib</a>
+
+          <!-- Dropdown Galeri & Informasi -->
+          <div class="relative inline-block text-left" id="dropdown-parent-md-info"
+               onmouseenter="openDropdown('nav-dropdown-md-info')"
+               onmouseleave="closeDropdown('nav-dropdown-md-info')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-md-info')" class="flex items-center gap-1 text-teal-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Galeri & Info</span>
+              <svg class="w-3.5 h-3.5 text-teal-400" id="arrow-nav-dropdown-md-info" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-md-info" class="hidden absolute left-0 mt-1 w-60 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#md-galeri" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Galeri Foto & Video</div>
+                <span class="text-[10px] text-slate-500">Pawai santri, lomba & khotmil qur'an</span>
+              </a>
+              <a href="#md-informasi" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Pengumuman & Berita</div>
+                <span class="text-[10px] text-slate-500">Ujian evaluasi jilid & warta kegiatan</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#md-pendaftaran" class="hover:text-white transition">Pendaftaran</a>
+          <a href="#md-kontak" class="hover:text-white transition">Kontak & Peta</a>
 
           <!-- Dropdown Pindah Sub-Website -->
           <div class="relative inline-block text-left" id="dropdown-parent-md"
                onmouseenter="openDropdown('nav-dropdown-md')"
                onmouseleave="closeDropdown('nav-dropdown-md')">
-            <button type="button" onclick="toggleDropdown('nav-dropdown-md')" class="flex items-center gap-1 text-teal-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-md')" class="flex items-center gap-1 text-amber-300 hover:text-amber-200 font-bold focus:outline-none cursor-pointer">
               <span>Pindah Unit</span>
               <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </button>
             <div id="nav-dropdown-md" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
-              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🏛️</span>
                 <div>
                   <div class="font-bold text-xs">Portal Utama Lembaga</div>
                   <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🕌</span>
                 <div>
                   <div class="font-bold text-xs">Pondok Pesantren Al-Ihya</div>
                   <div class="text-[10px] text-slate-400 font-mono">pp.majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🎙️</span>
                 <div>
                   <div class="font-bold text-xs">Majelis Taklim Al-Ihya</div>
@@ -1489,110 +1560,595 @@
             </div>
           </div>
         </div>
-        <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
-          Daftar Santri Madrasah (md.) ↗
-        </button>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2">
+          <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded-lg shadow transition cursor-pointer">
+            Daftar Santri Madrasah (md.) ↗
+          </button>
+          
+          <!-- Mobile Toggle -->
+          <button onclick="toggleMobileNav('mobile-menu-md')" class="xl:hidden p-1.5 rounded-lg text-teal-200 hover:bg-teal-800 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer Madrasah -->
+      <div id="mobile-menu-md" class="hidden xl:hidden border-t border-teal-800 bg-teal-950 px-4 py-3 space-y-2 text-xs">
+        <a href="#md-profil" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📜 Profil Madrasah & Pengurus</a>
+        <a href="#md-program" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📖 Program Pendidikan & Jenjang Kelas</a>
+        <a href="#md-kurikulum" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📚 Kurikulum & Jadwal Pembelajaran</a>
+        <a href="#md-tertib" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📋 Tata Tertib & Ketentuan Santri</a>
+        <a href="#md-galeri" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📸 Galeri Foto & Video Kegiatan</a>
+        <a href="#md-informasi" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📢 Pengumuman & Warta Berita</a>
+        <a href="#md-pendaftaran" onclick="closeAllDropdowns()" class="block py-1 text-amber-300 font-semibold">📝 Pendaftaran Santri Baru (md.)</a>
+        <a href="#md-kontak" onclick="closeAllDropdowns()" class="block py-1 text-teal-100 font-medium">📞 Kontak, Lokasi & Peta Gedung</a>
+        
+        <div class="pt-2 border-t border-teal-800/80">
+          <span class="text-[10px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Pindah Unit:</span>
+          <div class="space-y-1 pl-2">
+            <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🏛️ Portal Utama (majlisalihyabogor.id)</button>
+            <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🕌 Pondok Pesantren (pp.)</button>
+            <button onclick="switchView('majlis'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🎙️ Majelis Taklim (mt.)</button>
+          </div>
+        </div>
       </div>
     </nav>
 
-    <div class="bg-gradient-to-r from-teal-800 to-teal-700 text-white py-12 px-4 text-center">
-      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Madrasah Diniah Al-Ihya Bogor</h1>
-      <p class="text-teal-100 text-sm max-w-lg mx-auto mb-5">Belajar Membaca Al-Qur'an, Doa Harian, dan Ibadah Praktis dengan Ceria dan Penuh Kasih Sayang.</p>
-      <div class="inline-flex gap-2 text-xs bg-teal-900/60 p-2 rounded-lg border border-teal-600">
-        <span>⏰ Waktu Belajar: Senin - Kamis (15.30 - 17.00 WIB)</span>
+    <!-- SECTION 1: HERO BANNER MADRASAH -->
+    <div class="bg-gradient-to-br from-teal-950 via-teal-900 to-emerald-950 text-white py-14 sm:py-20 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#99f6e4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 bg-teal-400/20 text-teal-300 text-xs font-bold px-3.5 py-1.5 rounded-full border border-teal-400/30 mb-4 shadow-sm">
+          <span>📖</span>
+          <span>Penerimaan Santri Baru Madrasah Diniah Takmiliyah (MDT) Tahun Ajaran 2026/2027 Dibuka</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+          Madrasah Diniah Al-Ihya Bogor
+        </h1>
+        <p class="text-teal-100 text-xs sm:text-base max-w-2xl mx-auto mb-6 leading-relaxed font-normal">
+          Membimbing anak-anak usia sekolah dasar mencintai Al-Qur'an sejak dini, fasih membaca tartil bertajwid, menguasai praktik ibadah sholat fardhu, hafalan doa harian, dan berakhlakul karimah dengan suasana ceria dan penuh kasih sayang.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow-md text-xs sm:text-sm transition cursor-pointer">
+            Daftar Santri Madrasah Sekarang →
+          </button>
+          <a href="#md-pendaftaran" class="bg-teal-800/80 hover:bg-teal-700 text-teal-100 font-semibold px-5 py-3 rounded-xl border border-teal-600 text-xs sm:text-sm transition flex items-center gap-2">
+            <span>📄</span> Info Alur & Biaya
+          </a>
+          <a href="#md-jadwal" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-3 rounded-xl border border-white/20 text-xs sm:text-sm transition flex items-center gap-2">
+            <span>⏰</span> Waktu Belajar Sore
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Tingkatan Kelas -->
-    <div id="md-program" class="max-w-5xl mx-auto px-4 py-10">
-      <h3 class="text-base font-bold text-slate-900 mb-4 text-center">Tingkatan Kelas Belajar Madrasah Diniah</h3>
+    <!-- QUICK SECTION DIRECTORY (HORIZONTAL CHIP BAR) -->
+    <div class="bg-teal-900 border-b border-teal-800 py-2.5 px-4 shadow-inner sticky top-[106px] z-30 overflow-x-auto">
+      <div class="max-w-7xl mx-auto flex items-center gap-2 text-[11px] font-semibold whitespace-nowrap text-teal-100">
+        <span class="text-teal-300 uppercase tracking-wider text-[10px] shrink-0 mr-1">Lompat Ke:</span>
+        <a href="#md-profil" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📜 Profil & Visi</a>
+        <a href="#md-pengurus" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">👥 Profil Pengurus</a>
+        <a href="#md-program" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📖 Tingkatan Belajar</a>
+        <a href="#md-kurikulum" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📚 Kurikulum MDT</a>
+        <a href="#md-jadwal" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">⏰ Jadwal Sore</a>
+        <a href="#md-tertib" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📋 Tata Tertib</a>
+        <a href="#md-galeri" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📸 Galeri Foto & Video</a>
+        <a href="#md-informasi" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📢 Pengumuman & Berita</a>
+        <a href="#md-pendaftaran" class="px-2.5 py-1 rounded-lg bg-teal-400 text-slate-950 font-bold hover:bg-teal-300 transition">📝 Pendaftaran Santri Baru</a>
+        <a href="#md-kontak" class="px-2.5 py-1 rounded-lg bg-teal-800/80 hover:bg-teal-700 border border-teal-700/60 transition">📞 Kontak & Peta Gedung</a>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROFIL MADRASAH & PENGURUS -->
+    <section id="md-profil" class="max-w-6xl mx-auto px-4 py-12 scroll-mt-24">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        
+        <!-- Header Profil -->
+        <div class="border-b border-slate-200 pb-6 mb-8">
+          <span class="text-teal-700 font-bold text-xs uppercase tracking-wider block mb-1">Profil Lembaga Madrasah</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Sejarah Pendirian & Visi Misi Madrasah</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Pilar pembinaan pondasi keimanan, kelancaran membaca Al-Qur'an, dan akhlak anak sejak usia dini</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start mb-10">
+          <div>
+            <h3 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+              <span class="text-teal-600 text-lg">🏛️</span> Sejarah Pendirian Madrasah Diniah
+            </h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Madrasah Diniah Takmiliyah (MDT) Al-Ihya didirikan sebagai wujud kepedulian para alim ulama dan sesepuh Yayasan Al-Ihya dalam memberikan bekal pendidikan keislaman yang komprehensif bagi anak-anak usia sekolah dasar di wilayah Kota Bogor pada waktu sore hari.
+            </p>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Dengan mengombinasikan metode baca Al-Qur'an praktis (Iqro/Qira'ati) secara intensif dengan penanaman tauhid, tata cara wudhu & sholat yang benar, serta hafalan surat-surat pendek, Madrasah Diniah Al-Ihya telah meluluskan ribuan santri cilik yang fasih bertilawah dan memiliki kecintaan mendalam pada masjid.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Visi -->
+            <div class="bg-teal-50/70 p-5 rounded-2xl border border-teal-100">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">V</span>
+                <h4 class="font-bold text-slate-900 text-sm">Visi Madrasah Diniah</h4>
+              </div>
+              <p class="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                "Mewujudkan generasi santri cilik yang bertauhid lurus, fasih membaca Al-Qur'an secara tartil bertajwid, rajin menegakkan sholat berjamaah, serta berakhlakul karimah."
+              </p>
+            </div>
+
+            <!-- Misi -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold">M</span>
+                <h4 class="font-bold text-slate-900 text-sm">Misi Madrasah Diniah</h4>
+              </div>
+              <ul class="space-y-2 text-xs text-slate-600">
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-600 font-bold shrink-0">1.</span>
+                  <span>Menyelenggarakan pembelajaran baca tulis Al-Qur'an secara tartil, telaten, dan menyenangkan bagi anak.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-600 font-bold shrink-0">2.</span>
+                  <span>Membimbing secara langsung praktik bersuci (thaharah), wudhu, dan gerakan serta bacaan sholat fardhu 5 waktu.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-600 font-bold shrink-0">3.</span>
+                  <span>Memperkaya hafalan doa harian, hadits adab penuntut ilmu, serta surat-surat Juz 'Amma (Juz 30).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-600 font-bold shrink-0">4.</span>
+                  <span>Membentuk karakter santun, menghormati orang tua dan guru, serta membiasakan gemar bersedekah.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profil Pengurus & Dewan Asatidz -->
+        <div id="md-pengurus" class="border-t border-slate-200 pt-8 scroll-mt-24">
+          <div class="text-center max-w-xl mx-auto mb-6">
+            <span class="text-xs font-bold text-teal-700 uppercase tracking-wider">Struktur Pengajar</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">Profil Pengurus & Dewan Asatidz Madrasah</h3>
+            <p class="text-slate-500 text-xs">Pendidik yang sabar, telaten, dan berdedikasi membina generasi penerus Al-Qur'an</p>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-teal-800 text-amber-300 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                KM
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Ustadz Kepala Madrasah</h5>
+              <span class="text-[11px] text-teal-700 font-semibold block mb-2">Pimpinan & Penanggung Jawab MDT</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Memimpin koordinasi kurikulum diniyah takmiliyah, evaluasi kenaikan tingkat jilid santri, dan hubungan wali murid.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-emerald-800 text-emerald-200 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                Ust
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Dewan Asatidz Pembina Jilid</h5>
+              <span class="text-[11px] text-emerald-700 font-semibold block mb-2">Guru Bersertifikasi Tajwid & Iqro</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Membimbing kelompok belajar kecil dengan metode sorogan talaqqi tatap muka agar bacaan huruf hijaiyah santri fasih dan tepat.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-cyan-800 text-cyan-200 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                TU
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Tata Usaha & Kesiswaan Diniyah</h5>
+              <span class="text-[11px] text-cyan-700 font-semibold block mb-2">Layanan Administrasi & Mutaba'ah</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Mengelola rekapitulasi presensi harian, buku prestasi santri, administrasi pendaftaran, serta komunikasi berkala ke wali murid.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROGRAM PENDIDIKAN & KURIKULUM & JADWAL -->
+    <section id="md-program" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-bold text-teal-700 uppercase tracking-wider">Jenjang Pembelajaran</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Program Pendidikan & Tingkatan Belajar</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">Pembagian kelas berdasarkan pemetaan usia dan kemampuan membaca Al-Qur'an</p>
+      </div>
+
+      <!-- 3 Tingkatan Kelas Madrasah Diniah -->
+      <div class="grid sm:grid-cols-3 gap-5 mb-8">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center text-2xl mb-3">
+              🌱
+            </div>
+            <span class="bg-teal-50 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded border border-teal-200">Jenjang Tingkat 1</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Kelas A: Iqro Jilid 1 – 3</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Pengenalan makharijul huruf hijaiyah tunggal & sambung, harakat dasar (fathah, kasrah, dhommah), pengucapan fashahah, serta adab dasar thalabul 'ilmi bagi pemula.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-teal-700 font-semibold">
+            ✓ Target: Mengenal & melafalkan huruf hijaiyah dengan benar
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl mb-3">
+              🌿
+            </div>
+            <span class="bg-amber-50 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-200">Jenjang Tingkat 2</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Kelas B: Iqro Jilid 4 – 6</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Penerapan hukum tajwid dasar, mad thabi'i, sukun, tanwin, qolqolah, dengung ghunnah, serta setoran hafalan surat-surat pendek Juz 30 (An-Nas s.d Ad-Dhuha).
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-amber-700 font-semibold">
+            ✓ Target: Membaca kalimat Al-Qur'an bersambung bertajwid
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl mb-3">
+              🌳
+            </div>
+            <span class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-200">Jenjang Tingkat 3</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Kelas C: Al-Qur'an & Ibadah Praktis</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Tilawah Al-Qur'an 30 Juz secara tartil, penguasaan hukum tajwid lanjutan (idgham bighunnah/bilaghunnah, ikhfa, iqlab), praktik wudhu, gerakan & bacaan sholat fardhu lengkap.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-emerald-700 font-semibold">
+            ✓ Target: Khatam Al-Qur'an & Mandiri Ibadah Sholat 5 Waktu
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION KURIKULUM & MATRIKS MATERI DINIAH -->
+      <div id="md-kurikulum" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8 scroll-mt-24">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">📚</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900">Kurikulum Madrasah Diniyah Takmiliyah (MDT)</h3>
+            <p class="text-slate-500 text-xs">Empat pilar keilmuan kurikuler terpadu untuk santri usia sekolah dasar</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="font-bold text-teal-800 block text-sm mb-1.5">📖 Al-Qur'an & Tajwid</span>
+            <ul class="space-y-1 text-slate-600 text-[11px]">
+              <li>• Metode Membaca Iqro & Qira'ati</li>
+              <li>• Kaidah Tajwid Matan Tuhfatul Athfal</li>
+              <li>• Sima'an & Setoran Ziyadah Surat</li>
+              <li>• Khotmil Qur'an Juz 30 Bersama</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="font-bold text-teal-800 block text-sm mb-1.5">⚖️ Fiqih Ibadah Praktis</span>
+            <ul class="space-y-1 text-slate-600 text-[11px]">
+              <li>• Tata Cara Bersuci (Istinja & Thaharah)</li>
+              <li>• Bimbingan Wudhu Sesuai Sunnah</li>
+              <li>• Praktik Gerakan & Bacaan Sholat Fardhu</li>
+              <li>• Pengenalan Rukun Islam & Puasa Ramadhan</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="font-bold text-teal-800 block text-sm mb-1.5">🤲 Doa Harian & Hadits Adab</span>
+            <ul class="space-y-1 text-slate-600 text-[11px]">
+              <li>• Doa Bangun & Menjelang Tidur</li>
+              <li>• Doa Masuk & Keluar Kamar Mandi</li>
+              <li>• Doa Untuk Kedua Orang Tua & Guru</li>
+              <li>• Hadits Keutamaan Senyum & Berbagi</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="font-bold text-teal-800 block text-sm mb-1.5">✨ Aqidah, Akhlak & Sirah</span>
+            <ul class="space-y-1 text-slate-600 text-[11px]">
+              <li>• Mengenal Rukun Iman & Sifat Wajib Allah</li>
+              <li>• Hafalan Nadhom Aqidatul Awam</li>
+              <li>• Kisah Teladan 25 Nabi & Khulafaur Rasyidin</li>
+              <li>• Adab Berbakti & Sopan Santun Keseharian</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jadwal Keseharian Belajar Santri Sore -->
+      <div id="md-jadwal" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm scroll-mt-24">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">⏰</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900">Jadwal Pembelajaran Santri Madrasah Diniah (Sore Hari)</h3>
+            <p class="text-slate-500 text-xs">Alokasi waktu efektif Senin s.d Kamis (15.15 - 17.00 WIB) setelah sekolah formal santri</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+            <span class="font-mono text-teal-700 font-bold block text-xs">15.15 - 15.30 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Kehadiran & Sholat Ashar</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Kedatangan santri, menata sandal rapi, dan sholat Ashar berjamaah di masjid.</p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+            <span class="font-mono text-teal-700 font-bold block text-xs">15.30 - 15.45 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Doa Belajar & Asmaul Husna</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Membaca doa awal belajar bersama, muroja'ah hafalan surat pendek, dan menyanyikan syair aqidah.</p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+            <span class="font-mono text-teal-700 font-bold block text-xs">15.45 - 16.30 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Sorogan Membaca Iqro / Al-Qur'an</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Bimbingan individual tatap muka bersama asatidz pembina kelompok dan pencatatan buku prestasi.</p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+            <span class="font-mono text-teal-700 font-bold block text-xs">16.30 - 17.00 WIB</span>
+            <span class="font-bold text-slate-900 block mt-0.5">Materi Klasikal & Doa Penutup</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Penyampaian materi Fiqih/Akhlak/Kisah Nabi interaktif, doa kafaratul majlis, dan kepulangan santri.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TATA TERTIB SANTRI MADRASAH -->
+    <section id="md-tertib" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <div class="mb-8">
+          <span class="text-xs font-bold text-teal-700 uppercase tracking-wider block">Kedisiplinan & Karakter</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Tata Tertib & Ketentuan Santri Madrasah</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Panduan kedisiplinan dan adab untuk kelancaran kegiatan belajar mengajar</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-teal-900 block mb-1 text-sm">1. Disiplin Waktu Kehadiran</span>
+              <p class="text-slate-600 leading-relaxed text-[11px] mt-1">Santri hadir paling lambat pukul 15.15 WIB untuk mengikuti sholat Ashar berjamaah dan doa awal belajar bersama tepat waktu.</p>
+            </div>
+            <div class="mt-3 text-[10px] text-teal-700 font-semibold">Toleransi keterlambatan 10 menit</div>
+          </div>
+
+          <div class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-teal-900 block mb-1 text-sm">2. Busana Muslim / Muslimah</span>
+              <p class="text-slate-600 leading-relaxed text-[11px] mt-1">Santri putra wajib memakai baju koko bersih & peci hitam/putih. Santri putri wajib mengenakan busana muslimah sopan & jilbab rapi.</p>
+            </div>
+            <div class="mt-3 text-[10px] text-teal-700 font-semibold">Menjaga kebersihan & kesucian</div>
+          </div>
+
+          <div class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-teal-900 block mb-1 text-sm">3. Perlengkapan Belajar Pribadi</span>
+              <p class="text-slate-600 leading-relaxed text-[11px] mt-1">Wajib membawa mushaf Al-Qur'an / buku Iqro masing-masing, buku prestasi mutaba'ah harian, serta alat tulis pribadi dari rumah.</p>
+            </div>
+            <div class="mt-3 text-[10px] text-teal-700 font-semibold">Membiasakan tanggung jawab</div>
+          </div>
+
+          <div class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-teal-900 block mb-1 text-sm">4. Akhlak & Adab Santun</span>
+              <p class="text-slate-600 leading-relaxed text-[11px] mt-1">Menjunjung tinggi adab kepada asatidz/asatidzah, bersikap rukun terhadap teman, tidak membuat gaduh, serta menjaga kebersihan kelas.</p>
+            </div>
+            <div class="mt-3 text-[10px] text-teal-700 font-semibold">Senyum, salam, dan sapa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: GALERI FOTO & DOKUMENTASI VIDEO -->
+    <section id="md-galeri" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Galeri Foto & Dokumentasi Video Kegiatan</h3>
+          <p class="text-slate-500 text-xs">Momen keceriaan pawai santri, lomba keagamaan, dan pentas wisuda khotmil qur'an</p>
+        </div>
+        <span class="text-xs bg-teal-100 text-teal-800 font-semibold px-2.5 py-1 rounded">Dokumentasi Terkini</span>
+      </div>
+
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded-xl border border-slate-200">
-          <span class="bg-teal-100 text-teal-800 font-bold text-xs px-2 py-0.5 rounded">Kelas A</span>
-          <h4 class="font-bold text-slate-900 text-sm mt-2">Iqro Jilid 1 - 3</h4>
-          <p class="text-slate-500 text-xs mt-1">Pengenalan huruf hijaiyah, harakat dasar, dan adab thalabul 'ilmi.</p>
+        <div id="md-galeri-foto" class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-teal-800 text-white flex items-center justify-center text-xl font-bold">
+            📷 Pawai Santri Muharram
+          </div>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Pawai Akbar Menyambut Tahun Baru Islam</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Keceriaan ratusan santri cilik berkeliling lingkungan asri Bogor Barat.</p>
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200">
-          <span class="bg-teal-100 text-teal-800 font-bold text-xs px-2 py-0.5 rounded">Kelas B</span>
-          <h4 class="font-bold text-slate-900 text-sm mt-2">Iqro Jilid 4 - 6</h4>
-          <p class="text-slate-500 text-xs mt-1">Penerapan tajwid dasar, mad, sukun, tanwin, dan hafalan surat pendek.</p>
-        </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200">
-          <span class="bg-teal-100 text-teal-800 font-bold text-xs px-2 py-0.5 rounded">Kelas C</span>
-          <h4 class="font-bold text-slate-900 text-sm mt-2">Al-Qur'an & Praktik Sholat</h4>
-          <p class="text-slate-500 text-xs mt-1">Tilawah Al-Qur'an tartil, doa harian, dan bimbingan sholat fardhu.</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- Tata Tertib Madrasah Diniah (Fitur Kompetitor) -->
-    <div id="md-tertib" class="max-w-5xl mx-auto px-4 py-6">
-      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-        <h3 class="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
-          <span>📜</span> Tata Tertib & Ketentuan Santri Madrasah
-        </h3>
-        <p class="text-slate-500 text-xs mb-4">Panduan tertib untuk kelancaran kegiatan belajar mengajar santri diniyah</p>
-        <div class="grid sm:grid-cols-2 gap-3 text-xs">
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <span class="font-bold text-teal-800 block mb-0.5">1. Kedisiplinan Waktu</span>
-            <p class="text-slate-600">Santri hadir 10 menit sebelum jam 15.30 WIB untuk membaca doa awal belajar bersama.</p>
+        <div id="md-galeri-video" class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-emerald-800 text-white flex items-center justify-center text-xl font-bold">
+            🎥 Wisuda Khotmil Qur'an
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <span class="font-bold text-teal-800 block mb-0.5">2. Pakaian Muslim / Muslimah</span>
-            <p class="text-slate-600">Wajib mengenakan baju koko & peci bagi santri putra, serta busana muslimah & jilbab bagi santri putri.</p>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Video Dokumentasi Khotmil Juz 30</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Penayangan cuplikan pentas wisuda dan uji publik bacaan Al-Qur'an santri.</p>
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <span class="font-bold text-teal-800 block mb-0.5">3. Perlengkapan Belajar</span>
-            <p class="text-slate-600">Membawa buku prestasi bimbingan, kitab Iqro / mushaf Al-Qur'an masing-masing.</p>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-cyan-900 text-white flex items-center justify-center text-xl font-bold">
+            📷 Lomba Mewarnai Kaligrafi
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <span class="font-bold text-teal-800 block mb-0.5">4. Akhlak & Kesopanan</span>
-            <p class="text-slate-600">Menghormati ustadz/ustadzah, bersikap ramah sesama teman, serta menjaga kebersihan kelas.</p>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Pekan Kreativitas Santri Diniyah</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Asah kreativitas seni kaligrafi dan cerdas cermat keagamaan.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Galeri & Informasi Madrasah -->
-    <div id="md-galeri" class="max-w-5xl mx-auto px-4 py-6">
-      <h3 class="text-base font-bold text-slate-900 mb-3">Galeri & Informasi Kegiatan Santri</h3>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3">
-          <div class="w-14 h-14 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center text-2xl shrink-0">
-            📸
+    <!-- SECTION 6: PUSAT INFORMASI: PENGUMUMAN & WARTA BERITA -->
+    <section id="md-informasi" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Pengumuman Santri & Wali -->
+        <div id="md-pengumuman" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm scroll-mt-24">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📢</span>
+            <h4 class="font-bold text-sm text-slate-900">Pengumuman Akademik & Kalender Madrasah</h4>
           </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+              <span class="text-[10px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.2 rounded">Penting</span>
+              <h5 class="font-bold text-slate-900 mt-1">Jadwal Ujian Evaluasi & Kenaikan Jilid Semester Ganjil</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Pelaksanaan ujian sima'an kenaikan jilid Iqro akan diadakan mulai pekan depan bersama kepala madrasah.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] bg-slate-200 text-slate-700 font-bold px-1.5 py-0.2 rounded">Agenda</span>
+              <h5 class="font-bold text-slate-900 mt-1">Kegiatan Pesantren Kilat Ramadhan Ceria Santri Cilik</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Pendaftaran sanlat ramadhan khusus santri diniyah dibuka mulai tanggal 1 Ramadhan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Berita Madrasah Diniah -->
+        <div id="md-berita" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm scroll-mt-24">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📰</span>
+            <h4 class="font-bold text-sm text-slate-900">Warta Kegiatan Madrasah Diniah</h4>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-teal-700 font-semibold">18 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Sebanyak 35 Santri Berhasil Lulus Uji Khotmil Qur'an Juz 30</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Uji publik disaksikan para orang tua dengan haru dan khidmat di Aula Al-Ihya.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-teal-700 font-semibold">12 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Penyelenggaraan Simulasi Manasik Haji Santri Cilik</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Mengenalkan rukun haji, thawaf mengelilingi miniatur Ka'bah, dan sa'i dengan antusias.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: PENDAFTARAN SANTRI BARU MADRASAH DINIAH -->
+    <section id="md-pendaftaran" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="bg-gradient-to-r from-teal-950 via-teal-900 to-emerald-900 text-white rounded-2xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <span class="text-[10px] bg-teal-50 text-teal-700 font-bold px-2 py-0.5 rounded">Galeri Foto</span>
-            <h5 class="font-bold text-xs text-slate-800 mt-1">Pawai Santri Diniyah & Lomba Mewarnai Kaligrafi</h5>
-            <p class="text-[11px] text-slate-500">Momen keceriaan santri menyambut tahun baru Islam.</p>
+            <div class="inline-block bg-teal-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full mb-3">
+              TAHUN AJARAN 2026/2027
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Pendaftaran Santri Baru Madrasah Diniah</h3>
+            <p class="text-teal-100 text-xs sm:text-sm leading-relaxed mb-4">
+              Pendaftaran mudah dan cepat secara online maupun offline di sekretariat madrasah: Pengisian Formulir → Placement Test Penentuan Jilid → Penyerahan Dokumen → Mulai Mengaji.
+            </p>
+            <div class="space-y-1.5 text-xs text-teal-200 mb-6">
+              <div>📄 <strong>Syarat:</strong> Usia minimal 5 tahun (TK/SD), Fotokopi Kartu Keluarga (KK), Akta Kelahiran, dan Pas Foto 3x4 (2 lembar).</div>
+              <div>📅 <strong>Jadwal Pendaftaran:</strong> Dibuka sepanjang tahun (Gelombang Semester Baru: Juli - Agustus & Desember - Januari)</div>
+              <div>💳 <strong>Biaya Pendaftaran:</strong> Rp 100.000,- (Sudah termasuk Buku Prestasi, Kitab Iqro & Kartu Santri)</div>
+            </div>
+            <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow transition text-xs sm:text-sm cursor-pointer">
+              Buka Formulir Pendaftaran Online (md.) →
+            </button>
           </div>
-        </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3">
-          <div class="w-14 h-14 bg-amber-100 text-amber-800 rounded-lg flex items-center justify-center text-2xl shrink-0">
-            📢
-          </div>
-          <div>
-            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded">Pengumuman</span>
-            <h5 class="font-bold text-xs text-slate-800 mt-1">Jadwal Evaluasi & Ujian Kenaikan Jilid</h5>
-            <p class="text-[11px] text-slate-500">Akan dilaksanakan pada pekan ke-4 bulan depan.</p>
+
+          <div class="bg-teal-800/60 p-5 rounded-2xl border border-teal-600 text-xs space-y-3">
+            <h5 class="font-bold text-amber-300 text-sm">Alur 4 Langkah Pendaftaran:</h5>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-teal-400 text-slate-950 font-bold flex items-center justify-center text-xs">1</span>
+              <span>Isi Data Calon Santri & Kontak WhatsApp Orang Tua / Wali</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-teal-400 text-slate-950 font-bold flex items-center justify-center text-xs">2</span>
+              <span>Pemeriksaan Berkas & Cetak Bukti Registrasi Diniyah</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-teal-400 text-slate-950 font-bold flex items-center justify-center text-xs">3</span>
+              <span>Placement Test / Pemetaan Kemampuan Awal Membaca Al-Qur'an</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-teal-400 text-slate-950 font-bold flex items-center justify-center text-xs">4</span>
+              <span>Penetapan Kelompok Kelas (A, B, atau C) & Pengambilan Buku</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Tautan Silang Madrasah -->
-    <div class="max-w-5xl mx-auto px-4 py-8 border-t border-slate-200">
+    <!-- SECTION 8: KONTAK, LOKASI & PETA GEDUNG MADRASAH -->
+    <section id="md-kontak" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-teal-700 font-bold text-xs uppercase tracking-wider block mb-1">Sekretariat Diniyah</span>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-2">Kontak & Lokasi Gedung Madrasah</h3>
+            <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+              Konsultasi pendaftaran murid baru dan informasi kelas dibuka setiap hari Senin hingga Jumat (09.00 - 17.00 WIB) di kantor tata usaha madrasah.
+            </p>
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <span>📍</span>
+                <span>Gedung Madrasah Diniah Al-Ihya, Jl. KH. Tubagus Muhammad Falak, Kota Bogor</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>📞</span>
+                <span>Hotline Pendaftaran: 0813-XXXX-4444 (Ustadz Administrasi Diniyah)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>✉️</span>
+                <span>Email Madrasah: madrasah@majlisalihyabogor.id</span>
+              </div>
+            </div>
+
+            <!-- Tautan Media Sosial Resmi Madrasah -->
+            <div id="md-medsos" class="mt-4 pt-4 border-t border-slate-200">
+              <span class="text-xs font-bold text-slate-700 block mb-2">Tautan Media Sosial Resmi Madrasah:</span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <a href="https://instagram.com" target="_blank" class="bg-pink-50 text-pink-700 border border-pink-200 px-3 py-1.5 rounded-lg hover:bg-pink-100 flex items-center gap-1.5 font-medium">
+                  📸 Instagram @md.alihyabogor
+                </a>
+                <a href="https://youtube.com" target="_blank" class="bg-rose-50 text-rose-700 border border-rose-200 px-3 py-1.5 rounded-lg hover:bg-rose-100 flex items-center gap-1.5 font-medium">
+                  🎥 YouTube Al-Ihya TV
+                </a>
+                <a href="https://facebook.com" target="_blank" class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-100 flex items-center gap-1.5 font-medium">
+                  📘 Facebook Madrasah Al-Ihya
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-56 bg-slate-100 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-center p-4">
+            <span class="text-3xl mb-1">🗺️</span>
+            <span class="font-bold text-slate-800 text-xs sm:text-sm">Peta Lokasi Gedung Madrasah Diniah</span>
+            <span class="text-slate-500 text-[11px] mt-0.5">Komplek Pendidikan Yayasan Al-Ihya Kota Bogor</span>
+            <a href="https://maps.google.com" target="_blank" class="mt-2.5 text-xs bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800">
+              Buka Peta Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: TAUTAN SILANG (CROSS-LINKS) -->
+    <div id="md-tautan-silang" class="max-w-6xl mx-auto px-4 py-8 border-t border-slate-200">
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
         <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
         <div class="flex flex-wrap gap-2">
-          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            🏛️ Portal Utama
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            🏛️ Portal Utama (majlisalihyabogor.id)
           </button>
-          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            🕌 Ponpes (pp.)
+          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            🕌 Pondok Pesantren (pp.majlisalihyabogor.id)
           </button>
-          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            🎙️ Majelis Taklim (mt.)
+          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            🎙️ Majelis Taklim (mt.majlisalihyabogor.id)
           </button>
         </div>
       </div>
