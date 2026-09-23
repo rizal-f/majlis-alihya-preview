@@ -58,7 +58,7 @@
         <div>
           <div class="font-bold text-slate-100 text-sm tracking-tight flex items-center gap-1.5">
             MRF-ID <span class="text-emerald-400 font-normal">| Live Prototype Preview</span>
-            <span class="bg-teal-400 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] font-mono border border-teal-300 shadow-sm">v1.3 [MD UPDATED]</span>
+            <span class="bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded text-[10px] font-mono border border-amber-300 shadow-sm">v1.4 [ALL UNITS COMPLETE]</span>
           </div>
           <p class="text-slate-400 text-[11px]">Simulasi Interaktif Ekosistem Website Majlis Al-Ihya Bogor</p>
         </div>
@@ -2157,51 +2157,127 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- VIEW 4: SUB-PORTAL MAJLIS TA'LIM (mt.majlisalihyabogor.id) -->
+  <!-- VIEW 4: SUB-PORTAL MAJELIS TAKLIM (mt.majlisalihyabogor.id) -->
   <!-- ======================================================== -->
   <div id="view-majlis" class="view-container flex-1 hidden">
     
-    <nav class="bg-amber-900 text-white sticky top-[53px] z-40 shadow-md">
+    <!-- Navbar Majelis Taklim -->
+    <nav class="bg-amber-950 text-white sticky top-[53px] z-40 shadow-md border-b border-amber-800">
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        
+        <!-- Brand Majelis -->
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-lg bg-amber-800 text-amber-200 font-bold flex items-center justify-center text-lg">
+          <div class="w-9 h-9 rounded-lg bg-amber-800 text-amber-200 font-bold flex items-center justify-center text-lg border border-amber-700 shadow-sm">
             🎙️
           </div>
           <div>
-            <span class="font-bold text-white text-base leading-tight block">MAJELIS TAKLIM AL-IHYA</span>
+            <span class="font-extrabold text-white text-base leading-tight block">MAJELIS TAKLIM AL-IHYA</span>
             <span class="text-amber-300 text-[11px] font-mono block">mt.majlisalihyabogor.id</span>
           </div>
         </div>
-        <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-amber-100">
-          <a href="#mt-sholat" class="hover:text-amber-300">Jadwal Sholat</a>
-          <a href="#mt-live" class="hover:text-amber-300">Live Streaming</a>
-          <a href="#mt-rihlah" class="hover:text-amber-300">Rihlah & Umroh</a>
-          <a href="#mt-agenda" class="hover:text-amber-300">Agenda Kajian</a>
+
+        <!-- Desktop Navigation Majelis -->
+        <div class="hidden xl:flex items-center gap-5 text-xs font-semibold text-amber-100">
+          
+          <!-- Dropdown Profil -->
+          <div class="relative inline-block text-left" id="dropdown-parent-mt-profil"
+               onmouseenter="openDropdown('nav-dropdown-mt-profil')"
+               onmouseleave="closeDropdown('nav-dropdown-mt-profil')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-mt-profil')" class="flex items-center gap-1 text-amber-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Profil</span>
+              <svg class="w-3.5 h-3.5 text-amber-400" id="arrow-nav-dropdown-mt-profil" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-mt-profil" class="hidden absolute left-0 mt-1 w-60 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#mt-profil" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Sejarah & Visi Misi</div>
+                <span class="text-[10px] text-slate-500">Syiar dakwah & pembinaan umat</span>
+              </a>
+              <a href="#mt-pengurus" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Profil Pengurus & Asatidz</div>
+                <span class="text-[10px] text-slate-500">Khadimul majelis & dewan penasehat</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#mt-kegiatan" class="hover:text-white transition">Kegiatan Majelis</a>
+
+          <!-- Dropdown Jadwal -->
+          <div class="relative inline-block text-left" id="dropdown-parent-mt-jadwal"
+               onmouseenter="openDropdown('nav-dropdown-mt-jadwal')"
+               onmouseleave="closeDropdown('nav-dropdown-mt-jadwal')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-mt-jadwal')" class="flex items-center gap-1 text-amber-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Jadwal</span>
+              <svg class="w-3.5 h-3.5 text-amber-400" id="arrow-nav-dropdown-mt-jadwal" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-mt-jadwal" class="hidden absolute left-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#mt-jadwal-kajian" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Jadwal Kajian & Acara</div>
+                <span class="text-[10px] text-slate-500">Kajian Ahad pagi, selasa muslimah & malam jumat</span>
+              </a>
+              <a href="#mt-sholat" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Jadwal Sholat Otomatis</div>
+                <span class="text-[10px] text-slate-500">Waktu sholat presisi wilayah Kota Bogor</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#mt-live" class="hover:text-amber-300 transition flex items-center gap-1 text-rose-400 font-bold">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+            Live Stream
+          </a>
+
+          <a href="#mt-rihlah" class="hover:text-white transition">Rihlah & Umroh</a>
+
+          <!-- Dropdown Galeri & Informasi -->
+          <div class="relative inline-block text-left" id="dropdown-parent-mt-info"
+               onmouseenter="openDropdown('nav-dropdown-mt-info')"
+               onmouseleave="closeDropdown('nav-dropdown-mt-info')">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-mt-info')" class="flex items-center gap-1 text-amber-200 hover:text-white py-1 focus:outline-none cursor-pointer">
+              <span>Galeri & Info</span>
+              <svg class="w-3.5 h-3.5 text-amber-400" id="arrow-nav-dropdown-mt-info" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div id="nav-dropdown-mt-info" class="hidden absolute left-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
+              <a href="#mt-galeri" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Galeri Foto & Video</div>
+                <span class="text-[10px] text-slate-500">Dokumentasi tabligh akbar & YouTube</span>
+              </a>
+              <a href="#mt-informasi" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Pengumuman & Warta Berita</div>
+                <span class="text-[10px] text-slate-500">Agenda majelis & info santunan</span>
+              </a>
+              <a href="#mt-kajian" onclick="closeAllDropdowns()" class="block p-2 rounded-lg hover:bg-slate-100">
+                <div class="font-bold text-xs text-slate-900">Arsip Kajian & Artikel</div>
+                <span class="text-[10px] text-slate-500">Rangkuman tausiyah & rekaman audio</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#mt-kontak" class="hover:text-white transition">Kontak & Peta</a>
 
           <!-- Dropdown Pindah Sub-Website -->
           <div class="relative inline-block text-left" id="dropdown-parent-majlis"
                onmouseenter="openDropdown('nav-dropdown-majlis')"
                onmouseleave="closeDropdown('nav-dropdown-majlis')">
-            <button type="button" onclick="toggleDropdown('nav-dropdown-majlis')" class="flex items-center gap-1 text-amber-200 hover:text-white font-medium focus:outline-none cursor-pointer">
+            <button type="button" onclick="toggleDropdown('nav-dropdown-majlis')" class="flex items-center gap-1 text-amber-300 hover:text-amber-200 font-bold focus:outline-none cursor-pointer">
               <span>Pindah Unit</span>
               <svg class="w-3.5 h-3.5" id="arrow-nav-dropdown-majlis" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </button>
             <div id="nav-dropdown-majlis" class="hidden absolute right-0 mt-1 w-64 rounded-xl bg-white text-slate-800 shadow-2xl border border-slate-200 p-2 z-50">
-              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🏛️</span>
                 <div>
                   <div class="font-bold text-xs">Portal Utama Lembaga</div>
                   <div class="text-[10px] text-slate-400 font-mono">majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">🕌</span>
                 <div>
                   <div class="font-bold text-xs">Pondok Pesantren Al-Ihya</div>
                   <div class="text-[10px] text-slate-400 font-mono">pp.majlisalihyabogor.id</div>
                 </div>
               </button>
-              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5">
+              <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2.5 cursor-pointer">
                 <span class="text-base">📖</span>
                 <div>
                   <div class="font-bold text-xs">Madrasah Diniah Al-Ihya</div>
@@ -2211,206 +2287,677 @@
             </div>
           </div>
         </div>
-        <div class="text-xs font-semibold text-amber-200">
-          📍 Aula Majelis Al-Ihya Bogor
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2">
+          <a href="#mt-live" class="inline-flex items-center gap-1.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg shadow transition cursor-pointer">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            Live YouTube ↗
+          </a>
+          
+          <!-- Mobile Toggle -->
+          <button onclick="toggleMobileNav('mobile-menu-mt')" class="xl:hidden p-1.5 rounded-lg text-amber-200 hover:bg-amber-800 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer Majelis -->
+      <div id="mobile-menu-mt" class="hidden xl:hidden border-t border-amber-800 bg-amber-950 px-4 py-3 space-y-2 text-xs">
+        <a href="#mt-profil" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📜 Profil Majelis & Pengurus</a>
+        <a href="#mt-kegiatan" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">🎙️ Program Kegiatan Majelis Taklim</a>
+        <a href="#mt-jadwal-kajian" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📅 Jadwal Kajian Rutin & Kalender</a>
+        <a href="#mt-sholat" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">🕌 Jadwal Sholat Otomatis Kota Bogor</a>
+        <a href="#mt-live" onclick="closeAllDropdowns()" class="block py-1 text-rose-400 font-bold">🔴 Siaran Langsung (YouTube Live)</a>
+        <a href="#mt-rihlah" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">✈️ Program Ziarah & Umroh Akbar</a>
+        <a href="#mt-galeri" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📸 Galeri Foto & Arsip Video</a>
+        <a href="#mt-informasi" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📢 Pengumuman & Warta Berita</a>
+        <a href="#mt-kajian" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📖 Artikel Tausiyah & Rekaman Audio</a>
+        <a href="#mt-kontak" onclick="closeAllDropdowns()" class="block py-1 text-amber-100 font-medium">📞 Kontak, Lokasi & Peta Aula</a>
+        
+        <div class="pt-2 border-t border-amber-800/80">
+          <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-1">Pindah Unit:</span>
+          <div class="space-y-1 pl-2">
+            <button onclick="switchView('yayasan'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🏛️ Portal Utama (majlisalihyabogor.id)</button>
+            <button onclick="switchView('ponpes'); closeAllDropdowns();" class="w-full text-left py-1 text-white">🕌 Pondok Pesantren (pp.)</button>
+            <button onclick="switchView('tpa'); closeAllDropdowns();" class="w-full text-left py-1 text-white">📖 Madrasah Diniah (md.)</button>
+          </div>
         </div>
       </div>
     </nav>
 
-    <!-- Header Banner Majelis -->
-    <div class="bg-gradient-to-r from-amber-950 to-amber-900 text-white py-12 px-4 text-center">
-      <p class="font-arabic text-amber-300 text-xl mb-1">مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ</p>
-      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2">Majelis Taklim & Syiar Dakwah Umat</h1>
-      <p class="text-amber-200 text-xs sm:text-sm max-w-md mx-auto">Menyebarkan ilmu syariat, tuntunan ibadah, dan amalan sunnah bagi kaum muslimin & muslimat.</p>
-    </div>
-
-    <!-- ======================================================== -->
-    <!-- FITUR UNGGULAN 1: JADWAL SHOLAT OTOMATIS KOTA BOGOR (LIVE) -->
-    <!-- ======================================================== -->
-    <div id="mt-sholat" class="max-w-4xl mx-auto px-4 -mt-6">
-      <div class="bg-white rounded-2xl p-5 shadow-xl border border-amber-200">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🕌</span>
-            <div>
-              <h3 class="font-extrabold text-sm text-slate-900">Jadwal Sholat Hari Ini — Wilayah Kota Bogor</h3>
-              <p class="text-[11px] text-slate-500">Sinkronisasi Otomatis Hisab Kemenag RI (WIB)</p>
-            </div>
-          </div>
-          <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-200">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            Waktu Presisi Real-Time
-          </span>
+    <!-- SECTION 1: HERO BANNER MAJELIS TAKLIM -->
+    <div class="bg-gradient-to-br from-amber-950 via-stone-900 to-amber-900 text-white py-14 sm:py-20 px-4 relative overflow-hidden text-center">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fde68a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-4xl mx-auto relative z-10">
+        <p class="font-arabic text-amber-300 text-xl sm:text-2xl mb-3 tracking-wide">
+          مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ
+        </p>
+        <div class="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 text-xs font-bold px-3.5 py-1.5 rounded-full border border-amber-400/30 mb-4 shadow-sm">
+          <span>🎙️</span>
+          <span>Pusat Majelis Ilmu, Dzikir, Shalawat & Pembinaan Umat Kota Bogor</span>
         </div>
-
-        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 text-center">
-          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <span class="text-[10px] text-slate-500 block font-medium">Imsak</span>
-            <span class="text-sm font-extrabold text-slate-800">04:27</span>
-          </div>
-          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <span class="text-[10px] text-slate-500 block font-medium">Subuh</span>
-            <span class="text-sm font-extrabold text-slate-800">04:37</span>
-          </div>
-          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <span class="text-[10px] text-slate-500 block font-medium">Terbit</span>
-            <span class="text-sm font-extrabold text-slate-800">05:49</span>
-          </div>
-          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <span class="text-[10px] text-slate-500 block font-medium">Dzuhur</span>
-            <span class="text-sm font-extrabold text-slate-800">11:58</span>
-          </div>
-          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <span class="text-[10px] text-slate-500 block font-medium">Ashar</span>
-            <span class="text-sm font-extrabold text-slate-800">15:10</span>
-          </div>
-          <div class="bg-amber-100 p-2.5 rounded-xl border border-amber-300 ring-2 ring-amber-400">
-            <span class="text-[10px] text-amber-900 block font-extrabold">Maghrib</span>
-            <span class="text-sm font-extrabold text-amber-950">18:01</span>
-          </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+          Majelis Taklim Al-Ihya Bogor
+        </h1>
+        <p class="text-amber-100 text-xs sm:text-base max-w-2xl mx-auto mb-6 leading-relaxed font-normal">
+          Menyebarkan cahaya ilmu syariat Islam Ahlussunnah wal Jama'ah, kajian kitab kuning turats, tuntunan ibadah praktis, serta mempererat silaturahmi ukhuwah islamiyyah bagi kaum muslimin dan muslimat.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#mt-live" class="bg-rose-600 hover:bg-rose-700 text-white font-extrabold px-6 py-3 rounded-xl shadow-md text-xs sm:text-sm transition flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+            Tonton Live Streaming Pengajian →
+          </a>
+          <a href="#mt-jadwal-kajian" class="bg-amber-800/80 hover:bg-amber-700 text-amber-100 font-semibold px-5 py-3 rounded-xl border border-amber-600 text-xs sm:text-sm transition flex items-center gap-2">
+            <span>📅</span> Kalender Kajian Rutin
+          </a>
+          <a href="#mt-sholat" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-3 rounded-xl border border-white/20 text-xs sm:text-sm transition flex items-center gap-2">
+            <span>🕌</span> Jadwal Sholat Kota Bogor
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!-- FITUR UNGGULAN 2: LIVE STREAMING YOUTUBE PENGAJIAN -->
-    <!-- ======================================================== -->
-    <div id="mt-live" class="max-w-4xl mx-auto px-4 py-8">
-      <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-800">
-        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <!-- QUICK SECTION DIRECTORY (HORIZONTAL CHIP BAR) -->
+    <div class="bg-amber-900 border-b border-amber-800 py-2.5 px-4 shadow-inner sticky top-[106px] z-30 overflow-x-auto">
+      <div class="max-w-7xl mx-auto flex items-center gap-2 text-[11px] font-semibold whitespace-nowrap text-amber-100">
+        <span class="text-amber-300 uppercase tracking-wider text-[10px] shrink-0 mr-1">Lompat Ke:</span>
+        <a href="#mt-profil" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📜 Profil & Visi</a>
+        <a href="#mt-pengurus" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">👥 Profil Pengurus</a>
+        <a href="#mt-kegiatan" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">🎙️ Kegiatan Majelis</a>
+        <a href="#mt-jadwal-kajian" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📅 Jadwal Kajian</a>
+        <a href="#mt-sholat" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">🕌 Jadwal Sholat</a>
+        <a href="#mt-live" class="px-2.5 py-1 rounded-lg bg-rose-700 text-white font-bold hover:bg-rose-600 transition">🔴 Live Streaming</a>
+        <a href="#mt-rihlah" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">✈️ Rihlah & Umroh</a>
+        <a href="#mt-galeri" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📸 Galeri Foto & Video</a>
+        <a href="#mt-informasi" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📢 Pengumuman & Berita</a>
+        <a href="#mt-kajian" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📖 Artikel & Rekaman</a>
+        <a href="#mt-kontak" class="px-2.5 py-1 rounded-lg bg-amber-800/80 hover:bg-amber-700 border border-amber-700/60 transition">📞 Kontak & Peta Aula</a>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROFIL MAJELIS TAKLIM & PENGURUS -->
+    <section id="mt-profil" class="max-w-6xl mx-auto px-4 py-12 scroll-mt-24">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        
+        <!-- Header Profil -->
+        <div class="border-b border-slate-200 pb-6 mb-8">
+          <span class="text-amber-800 font-bold text-xs uppercase tracking-wider block mb-1">Profil Syiar Dakwah</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Sejarah Pendirian & Visi Misi Majelis Taklim</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Benteng thalabul 'ilmi, dzikir berjamaah, dan pelestarian sanad keilmuan Ahlussunnah wal Jama'ah</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start mb-10">
+          <div>
+            <h3 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+              <span class="text-amber-600 text-lg">🏛️</span> Sejarah Dakwah Majelis Taklim Al-Ihya
+            </h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Majelis Taklim Al-Ihya Bogor berakar dari majelis pengajian rutin yang dirintis oleh ulama kharismatik Kota Bogor, KH. Tubagus Muhammad Falak, bersama para sesepuh yayasan. Majelis ini didirikan dengan tujuan mulia menghidupkan majelis ilmu, memperkuat tali silaturahmi jamaah, dan membentengi akidah umat Islam dari berbagai pemikiran yang menyimpang.
+            </p>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Hingga saat ini, Majelis Taklim Al-Ihya terus istiqomah menyelenggarakan pengajian akbar mingguan, halaqah kajian kitab turats fiqih & tasawuf, majlis dzikir Ratib Al-Haddad, serta pengajian khusus muslimah yang dihadiri ribuan jamaah dari penjuru Jabodetabek.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Visi -->
+            <div class="bg-amber-50/70 p-5 rounded-2xl border border-amber-200">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded-full bg-amber-800 text-white flex items-center justify-center text-xs font-bold">V</span>
+                <h4 class="font-bold text-slate-900 text-sm">Visi Majelis Taklim</h4>
+              </div>
+              <p class="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                "Menjadi pusat majelis ilmu dan dzikir yang menyejukkan hati, menyebarkan pemahaman Islam yang rahmatan lil 'alamin, serta membangun keluarga dan masyarakat yang berakhlakul karimah."
+              </p>
+            </div>
+
+            <!-- Misi -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold">M</span>
+                <h4 class="font-bold text-slate-900 text-sm">Misi Majelis Taklim</h4>
+              </div>
+              <ul class="space-y-2 text-xs text-slate-600">
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-700 font-bold shrink-0">1.</span>
+                  <span>Menyelenggarakan kajian kitab kuning turats secara istiqomah dalam bidang Tafsir Al-Qur'an, Hadits, Fiqih Ibadah, dan Tasawuf.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-700 font-bold shrink-0">2.</span>
+                  <span>Melestarikan amaliyah thariqah auliya salafush sholih seperti pembacaan maulid, ratib, istighotsah, dan shalawat nabi.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-700 font-bold shrink-0">3.</span>
+                  <span>Menyediakan program pembinaan keluarga sakinah dan fiqih wanita secara rutin bagi kalangan muslimah.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-700 font-bold shrink-0">4.</span>
+                  <span>Mengembangkan kepedulian sosial kemasyarakatan melalui santunan dhuafa, beasiswa anak yatim, dan layanan konsultasi syariah.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profil Pengurus & Dewan Asatidz -->
+        <div id="mt-pengurus" class="border-t border-slate-200 pt-8 scroll-mt-24">
+          <div class="text-center max-w-xl mx-auto mb-6">
+            <span class="text-xs font-bold text-amber-800 uppercase tracking-wider">Struktur Kepengurusan</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">Profil Pengurus & Dewan Asatidz Majelis Taklim</h3>
+            <p class="text-slate-500 text-xs">Para khadimul majelis, dewan kyai, dan asatidz pembimbing jamaah</p>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-amber-900 text-amber-200 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                KM
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Khadimul Majelis & Pimpinan Taklim</h5>
+              <span class="text-[11px] text-amber-800 font-semibold block mb-2">Pimpinan Umum Majelis Taklim Al-Ihya</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Memimpin pengajian akbar ahad pagi, mengampu kajian kitab rujukan utama, serta memimpin doa dan istighotsah jamaah.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-emerald-900 text-emerald-200 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                DP
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Dewan Penasehat & Pengampu Kitab</h5>
+              <span class="text-[11px] text-emerald-800 font-semibold block mb-2">Para Habaib & Asatidz Senior</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Narasumber pengajian kitab kuning Fiqih, Hadits Arbain, Tafsir Jalalain, dan bimbingan tanya jawab syariah umat.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:shadow-sm transition">
+              <div class="w-14 h-14 mx-auto rounded-full bg-rose-900 text-rose-200 font-bold flex items-center justify-center text-lg mb-3 shadow">
+                KM
+              </div>
+              <h5 class="font-bold text-slate-900 text-sm">Divisi Muslimah & Pelayanan Jamaah</h5>
+              <span class="text-[11px] text-rose-800 font-semibold block mb-2">Ustadzah & Pengurus Majelis Muslimah</span>
+              <p class="text-slate-500 text-xs leading-relaxed">
+                Mengkoordinasikan pengajian rutin selasa siang muslimah, konsumsi jamaah, penerimaan zakat/infaq, dan program santunan sosial.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROGRAM KEGIATAN MAJELIS TAKLIM -->
+    <section id="mt-kegiatan" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider">Syiar & Dakwah</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Program Kegiatan Majelis Taklim</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">Rangkaian majelis ilmu, dzikir, shalawat, dan pembinaan rutin jamaah</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center text-2xl mb-3">
+              📖
+            </div>
+            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded">Kajian Akbar Mingguan</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Pengajian Rutin Ahad Pagi</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Kajian kitab Riyadhus Shalihin, Tafsir Jalalain, dan sesi interaktif tanya jawab persoalan hukum Islam bersama pimpinan majelis.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-amber-800 font-semibold">
+            ⏰ Setiap Ahad: 07.30 - 09.00 WIB (Hybrid)
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-900 flex items-center justify-center text-2xl mb-3">
+              🌸
+            </div>
+            <span class="bg-rose-100 text-rose-900 text-[10px] font-bold px-2 py-0.5 rounded">Khusus Muslimah</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Kajian Muslimah Selasa Siang</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Kajian fiqih thaharah wanita, bimbingan adab mendidik anak islami, kitab Bidayatul Hidayah, dan konsultasi keluarga sakinah.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-rose-800 font-semibold">
+            ⏰ Setiap Selasa: 13.30 - 15.00 WIB (Aula)
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-900 flex items-center justify-center text-2xl mb-3">
+              ✨
+            </div>
+            <span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded">Dzikir & Shalawat</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Ratib & Maulid Malam Jumat</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Pembacaan Ratib Al-Haddad, Ratib Al-Athas, pembacaan Maulid Simtudduror bersama dewan asatidz dan jamaah pecinta shalawat.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-emerald-800 font-semibold">
+            ⏰ Setiap Kamis Malam: Ba'da Isya - Selesai
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-900 flex items-center justify-center text-2xl mb-3">
+              🕌
+            </div>
+            <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">Agenda Tahunan</span>
+            <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">Tabligh Akbar & PHBI</h4>
+            <p class="text-slate-600 text-xs leading-relaxed mb-3">
+              Peringatan Maulid Nabi Muhammad SAW, Isra Mi'raj, Nuzulul Qur'an, santunan 500 anak yatim, dan buka puasa bersama jamaah.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-blue-800 font-semibold">
+            ⏰ Sesuai Kalender Hijriyah Yayasan
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: JADWAL KAJIAN & WIDGET JADWAL SHOLAT OTOMATIS -->
+    <section id="mt-jadwal" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      
+      <!-- FITUR UNGGULAN 1: WIDGET JADWAL SHOLAT OTOMATIS (LIVE KOTA BOGOR) -->
+      <div id="mt-sholat" class="bg-white rounded-2xl p-6 shadow-md border border-amber-200 mb-8 scroll-mt-24">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🕌</span>
+            <div>
+              <h3 class="font-extrabold text-sm sm:text-base text-slate-900">Jadwal Sholat Hari Ini — Wilayah Kota Bogor & Sekitarnya</h3>
+              <p class="text-[11px] text-slate-500">Sinkronisasi Otomatis Metode Hisab Kementerian Agama Republik Indonesia (WIB)</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Waktu Sholat Presisi Real-Time
+          </span>
+        </div>
+
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 text-center">
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="text-[11px] text-slate-500 block font-medium">Imsak</span>
+            <span class="text-base font-extrabold text-slate-800">04:27</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="text-[11px] text-slate-500 block font-medium">Subuh</span>
+            <span class="text-base font-extrabold text-slate-800">04:37</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="text-[11px] text-slate-500 block font-medium">Terbit</span>
+            <span class="text-base font-extrabold text-slate-800">05:49</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="text-[11px] text-slate-500 block font-medium">Dzuhur</span>
+            <span class="text-base font-extrabold text-slate-800">11:58</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="text-[11px] text-slate-500 block font-medium">Ashar</span>
+            <span class="text-base font-extrabold text-slate-800">15:10</span>
+          </div>
+          <div class="bg-amber-100 p-3 rounded-xl border border-amber-300 ring-2 ring-amber-400">
+            <span class="text-[11px] text-amber-900 block font-extrabold">Maghrib</span>
+            <span class="text-base font-extrabold text-amber-950">18:01</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jadwal Kalender Kajian & Acara Terdekat -->
+      <div id="mt-jadwal-kajian" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm scroll-mt-24">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">📅</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900">Jadwal Kalender Kajian & Acara Majelis Taklim Terdekat</h3>
+            <p class="text-slate-500 text-xs">Jadwal pengajian rutin pekanan dan agenda tabligh akbar bulanan</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 hover:bg-amber-50/40 transition">
+            <div class="space-y-1">
+              <span class="bg-amber-100 text-amber-900 font-bold text-[10px] px-2.5 py-0.5 rounded">Ahad, 27 September 2026</span>
+              <h4 class="font-bold text-slate-900 text-sm">Kajian Kitab Riyadhus Shalihin: Bab Ikhlas & Niat</h4>
+              <p class="text-slate-500 text-xs">Pukul 07.30 - 09.00 WIB • Khadimul Majelis Al-Ihya • Aula Utama</p>
+            </div>
+            <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-3 py-1 rounded-full border border-emerald-200">
+              🟢 Tatap Muka & Live YouTube
+            </span>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 hover:bg-amber-50/40 transition">
+            <div class="space-y-1">
+              <span class="bg-rose-100 text-rose-900 font-bold text-[10px] px-2.5 py-0.5 rounded">Selasa, 29 September 2026</span>
+              <h4 class="font-bold text-slate-900 text-sm">Pengajian Muslimah: Fiqih Ibadah & Adab Thaharah Wanita</h4>
+              <p class="text-slate-500 text-xs">Pukul 13.30 - 15.00 WIB • Dewan Asatidzah Pembina • Ruang Muslimah</p>
+            </div>
+            <span class="text-xs bg-slate-100 text-slate-700 font-semibold px-3 py-1 rounded-full">
+              Khusus Jamaah Muslimah
+            </span>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 hover:bg-amber-50/40 transition">
+            <div class="space-y-1">
+              <span class="bg-emerald-100 text-emerald-900 font-bold text-[10px] px-2.5 py-0.5 rounded">Kamis Malam, 1 Oktober 2026</span>
+              <h4 class="font-bold text-slate-900 text-sm">Majelis Dzikir Ratib Al-Haddad & Maulid Simtudduror</h4>
+              <p class="text-slate-500 text-xs">Pukul 19.30 WIB (Ba'da Isya) - Selesai • Para Habaib & Asatidz • Masjid Jami'</p>
+            </div>
+            <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-3 py-1 rounded-full border border-emerald-200">
+              🟢 Live Streaming Al-Ihya TV
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: LIVE STREAMING YOUTUBE PENGAJIAN -->
+    <section id="mt-live" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="bg-slate-950 text-white rounded-2xl p-6 sm:p-10 shadow-xl border border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
           <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 bg-rose-600 text-white text-xs font-extrabold px-3 py-1 rounded-full animate-pulse">
+            <span class="inline-flex items-center gap-1.5 bg-rose-600 text-white text-xs font-extrabold px-3 py-1.5 rounded-full animate-pulse">
               🔴 SIARAN LANGSUNG (LIVE STREAMING)
             </span>
-            <span class="text-xs text-slate-400 font-mono">YouTube Live Al-Ihya</span>
+            <span class="text-xs text-slate-400 font-mono">Channel Resmi YouTube: Al-Ihya TV Official</span>
           </div>
-          <span class="text-xs text-slate-300">👥 1.240 Jamaah Online Sedang Menyimak</span>
+          <span class="text-xs text-slate-300">👥 1.480 Jamaah Sedang Menyimak Online</span>
         </div>
 
         <!-- Video Player Mockup Frame -->
-        <div class="relative bg-black rounded-xl aspect-video overflow-hidden border border-slate-800 flex flex-col items-center justify-center p-6 text-center group cursor-pointer">
+        <div class="relative bg-black rounded-xl aspect-video overflow-hidden border border-slate-800 flex flex-col items-center justify-center p-6 text-center group cursor-pointer shadow-inner">
           <div class="w-16 h-16 rounded-full bg-rose-600 text-white flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition">
             ▶
           </div>
-          <h4 class="font-extrabold text-base sm:text-xl text-white mt-4 max-w-lg">
-            Kajian Rutin Ahad Pagi: Bedah Kitab Riyadhis Shalihin
+          <h4 class="font-extrabold text-base sm:text-2xl text-white mt-4 max-w-xl">
+            Kajian Rutin Ahad Pagi: Bedah Kitab Riyadhus Shalihin
           </h4>
-          <p class="text-slate-400 text-xs sm:text-sm mt-1">Bersama Pengasuh Majlis Al-Ihya Bogor</p>
-          <div class="absolute bottom-3 left-3 bg-black/70 px-2.5 py-1 rounded text-[11px] font-mono text-emerald-400">
-            ● Kualitas HD 1080p | Suara Jernih
+          <p class="text-slate-400 text-xs sm:text-sm mt-1">Bersama Khadimul Majelis & Dewan Asatidz Al-Ihya Bogor</p>
+          <div class="absolute bottom-3 left-3 bg-black/80 px-2.5 py-1 rounded text-[11px] font-mono text-emerald-400">
+            ● Audio Jernih Stereo | Kualitas HD 1080p
           </div>
         </div>
 
         <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p class="text-xs text-slate-400">Siaran ini juga direkam secara otomatis dan dapat disimak kembali di kanal YouTube resmi.</p>
+          <p class="text-xs text-slate-400">Seluruh siaran kajian direkam otomatis dan diarsipkan sehingga dapat disimak kembali kapan saja.</p>
           <div class="flex gap-2">
-            <button onclick="alert('Simulasi: Menuju siaran YouTube Channel Majlis Al-Ihya!')" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition flex items-center gap-1.5">
-              📺 Buka di YouTube ↗
-            </button>
-            <button onclick="alert('Link kajian berhasil disalin untuk dibagikan ke grup WhatsApp jamaah!')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3.5 py-2 rounded-lg border border-slate-700 transition">
-              🔗 Bagikan Kajian
+            <a href="https://youtube.com" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+              📺 Tonton di YouTube ↗
+            </a>
+            <button onclick="alert('Link live streaming kajian berhasil disalin untuk dibagikan ke WhatsApp jamaah!')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3.5 py-2 rounded-lg border border-slate-700 transition cursor-pointer">
+              🔗 Bagikan Tautan Kajian
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ======================================================== -->
-    <!-- FITUR UNGGULAN 3: PROGRAM RIHLAH & UMROH AL-IHYA -->
-    <!-- ======================================================== -->
-    <div id="mt-rihlah" class="max-w-4xl mx-auto px-4 py-6">
-      <div class="mb-4">
-        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Program Khusus Jamaah</span>
-        <h3 class="text-lg font-bold text-slate-900">Program Rihlah Ilmiah, Ziarah Wali & Umroh Akbar</h3>
-        <p class="text-slate-500 text-xs">Perjalanan ibadah berkah bersama para asatidz dan pembimbing Majlis Al-Ihya</p>
+    <!-- SECTION 6: PROGRAM RIHLAH & UMROH AL-IHYA -->
+    <section id="mt-rihlah" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Program Perjalanan Ibadah</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Program Rihlah Ilmiah, Ziarah Wali & Umroh Akbar</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">Perjalanan ibadah berkah dan bimbingan ruhani bersama para asatidz dan masyayikh Majlis Al-Ihya</p>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid sm:grid-cols-2 gap-6">
         
         <!-- Paket 1: Ziarah Wali -->
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition">
           <div>
-            <div class="inline-block bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded mb-2">
-              Jawa Barat & Banten
+            <div class="inline-block bg-teal-100 text-teal-800 text-[10px] font-bold px-2.5 py-0.5 rounded mb-2">
+              Ziarah Maqam Auliya (Banten & Jawa Barat)
             </div>
-            <h4 class="font-bold text-slate-900 text-sm">Rihlah Ilmiah & Ziarah Maqam Auliya</h4>
-            <p class="text-slate-600 text-xs mt-1.5 leading-relaxed">
-              Program ziarah berkah ke makam para wali dan ulama pejuang dakwah di Banten dan Cirebon disertai tausiyah di sepanjang perjalanan.
+            <h3 class="font-bold text-slate-900 text-base">Rihlah Ilmiah & Ziarah Ulama Salaf Nusantara</h3>
+            <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+              Program ziarah berkah menelusuri jejak perjuangan dakwah para waliyullah di Banten dan Cirebon disertai kajian kitab adab dan dzikir bersama di sepanjang perjalanan.
             </p>
-            <div class="mt-3 space-y-1 text-[11px] text-slate-500">
-              <div>📅 Jadwal: Akhir Bulan Depan (3 Hari 2 Malam)</div>
-              <div>🚌 Fasilitas: Bus Pariwisata AC, Hotel & Konsumsi</div>
+            <div class="mt-4 space-y-1.5 text-xs text-slate-600 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+              <div>📅 <strong>Jadwal Rihlah:</strong> Akhir Bulan Depan (3 Hari 2 Malam)</div>
+              <div>🚌 <strong>Fasilitas:</strong> Bus Pariwisata Eksekutif AC, Hotel Bintang 3 & Konsumsi 3x Sehari</div>
+              <div>👥 <strong>Pembimbing:</strong> Ustadz Pembimbing Majelis Taklim Al-Ihya</div>
             </div>
           </div>
-          <button onclick="alert('Simulasi: Menghubungi admin pendaftaran Rihlah Ziarah Majlis Al-Ihya!')" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2 rounded-lg transition">
-            Info Detail & Pendaftaran Rihlah →
+          <button onclick="alert('Simulasi: Menghubungi admin pendaftaran Rihlah Ziarah Majelis Al-Ihya!')" class="mt-5 w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-xl transition cursor-pointer">
+            Konsultasi Detail & Pendaftaran Rihlah →
           </button>
         </div>
 
         <!-- Paket 2: Umroh Akbar -->
-        <div class="bg-gradient-to-br from-amber-50 to-amber-100 p-5 rounded-xl border border-amber-300 shadow-sm flex flex-col justify-between">
+        <div class="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-300 shadow-sm flex flex-col justify-between hover:shadow-md transition">
           <div>
-            <div class="inline-block bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded mb-2">
-              🌟 Program Utama
+            <div class="inline-block bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded mb-2">
+              🌟 Program Umroh Utama Al-Ihya
             </div>
-            <h4 class="font-bold text-slate-900 text-sm">Paket Umroh Akbar 12 Hari Bersama Asatidz</h4>
-            <p class="text-slate-700 text-xs mt-1.5 leading-relaxed">
-              Ibadah Umroh khusyuk dengan bimbingan manasik intensif, penerbangan direct Saudia Airlines, dan hotel ring 1 dekat Masjidil Haram.
+            <h3 class="font-bold text-slate-900 text-base">Paket Umroh Akbar 12 Hari Bersama Dewan Asatidz</h3>
+            <p class="text-slate-700 text-xs mt-2 leading-relaxed">
+              Ibadah Umroh khusyuk dan terbimbing dengan manasik intensif, penerbangan langsung tanpa transit, serta penginapan hotel ring 1 dekat pelataran Masjidil Haram dan Nabawi.
             </p>
-            <div class="mt-3 space-y-1 text-[11px] text-amber-950 font-medium">
-              <div>✈️ Maskapai: Saudia Airlines (Direct Jakarta - Jeddah)</div>
-              <div>🏨 Hotel: Bintang 4 Ring 1 Makkah & Madinah</div>
+            <div class="mt-4 space-y-1.5 text-xs text-amber-950 bg-amber-200/50 p-3.5 rounded-xl border border-amber-300">
+              <div>✈️ <strong>Penerbangan:</strong> Direct Flight Saudia Airlines (Jakarta - Jeddah)</div>
+              <div>🏨 <strong>Akomodasi:</strong> Hotel Bintang 4 Ring 1 Makkah & Madinah (Jalan Kaki ke Masjid)</div>
+              <div>📖 <strong>Bimbingan:</strong> Manasik Intensif 3 Kali & Bimbingan Muthawwif Berpengalaman</div>
             </div>
           </div>
-          <button onclick="alert('Simulasi: Menghubungi panitia pendaftaran Umroh Akbar Majlis Al-Ihya!')" class="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2 rounded-lg transition shadow">
-            Konsultasi Pendaftaran Umroh (WA) ↗
+          <button onclick="alert('Simulasi: Menghubungi sekretariat pendaftaran Umroh Akbar Majlis Al-Ihya!')" class="mt-5 w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-extrabold py-2.5 rounded-xl transition shadow cursor-pointer">
+            Daftar Umroh Akbar Bersama Asatidz (WhatsApp) ↗
           </button>
         </div>
 
       </div>
-    </div>
+    </section>
 
-    <!-- Agenda Kajian Rutin -->
-    <div id="mt-agenda" class="max-w-4xl mx-auto px-4 py-6">
-      <h3 class="text-base font-bold text-slate-900 mb-4">Agenda Kajian Pekanan & Bulanan</h3>
-      <div class="space-y-3">
-        <div class="bg-white p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 shadow-sm">
-          <div>
-            <span class="bg-amber-100 text-amber-900 font-bold text-[10px] px-2 py-0.5 rounded">Setiap Ahad Pagi</span>
-            <h4 class="font-bold text-slate-900 text-sm mt-1">Kajian Kitab Riyadhis Shalihin & Tanya Jawab Syariah</h4>
-            <p class="text-slate-500 text-xs">Pukul 07.30 - 09.00 WIB bersama Pengasuh Majlis Al-Ihya Bogor</p>
+    <!-- SECTION 7: GALERI FOTO & DOKUMENTASI VIDEO YOUTUBE -->
+    <section id="mt-galeri" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Galeri Foto & Arsip Video Dokumentasi</h3>
+          <p class="text-slate-500 text-xs">Dokumentasi semarak pengajian akbar, maulid nabi, dan rekaman tausiyah</p>
+        </div>
+        <span class="text-xs bg-amber-100 text-amber-900 font-semibold px-2.5 py-1 rounded">Update Terkini</span>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div id="mt-galeri-foto" class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-amber-950 text-white flex items-center justify-center text-xl font-bold">
+            📷 Pengajian Ahad Pagi
           </div>
-          <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2.5 py-1 rounded border border-emerald-200">
-            🟢 Siaran Langsung YouTube
-          </span>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Antusiasme Ribuan Jamaah Ahad Pagi</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Suasana khidmat menyimak kajian kitab di Aula Al-Ihya.</p>
+          </div>
         </div>
 
-        <div class="bg-white p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 shadow-sm">
-          <div>
-            <span class="bg-rose-100 text-rose-900 font-bold text-[10px] px-2 py-0.5 rounded">Setiap Selasa Siang</span>
-            <h4 class="font-bold text-slate-900 text-sm mt-1">Majlis Ta'lim Khusus Ibu-Ibu: Fiqih Wanita & Thaharah</h4>
-            <p class="text-slate-500 text-xs">Pukul 13.30 - 15.00 WIB di Aula Majlis Al-Ihya</p>
+        <div id="mt-galeri-video" class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-rose-900 text-white flex items-center justify-center text-xl font-bold">
+            🎥 Tausiyah Pilihan YouTube
           </div>
-          <span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2.5 py-1 rounded">
-            Tatap Muka
-          </span>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Rekaman Kajian Kitab Riyadhus Shalihin</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Tersedia di kanal YouTube resmi Al-Ihya TV Official.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-emerald-950 text-white flex items-center justify-center text-xl font-bold">
+            📷 Tabligh Akbar Maulid
+          </div>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Peringatan Maulid Nabi Muhammad SAW</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Dihadiri para habaib, alim ulama, dan jamaah se-Bogor Raya.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Tautan Silang Majelis Taklim -->
-    <div class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-200">
+    <!-- SECTION 8: PUSAT INFORMASI (PENGUMUMAN, BERITA & KAJIAN) -->
+    <section id="mt-informasi" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        
+        <!-- Pengumuman Majelis -->
+        <div id="mt-pengumuman" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm scroll-mt-24">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📢</span>
+            <h4 class="font-bold text-sm text-slate-900">Pengumuman Majelis & Jamaah</h4>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 bg-amber-50 rounded-xl border border-amber-200">
+              <span class="text-[10px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.2 rounded">Penting</span>
+              <h5 class="font-bold text-slate-900 mt-1">Himbauan Parkir Jamaah Pengajian Ahad Pagi</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Jamaah roda empat dihimbau memanfaatkan area parkir timur gedung yayasan guna kelancaran arus lalu lintas.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] bg-slate-200 text-slate-700 font-bold px-1.5 py-0.2 rounded">Infaq Dakwah</span>
+              <h5 class="font-bold text-slate-900 mt-1">Layanan Rekening Infaq & Sedekah Majelis Taklim</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Infaq operasional majelis dan santunan yatim dapat disalurkan via rekening Bank Syariah resmi yayasan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Berita Majelis -->
+        <div id="mt-berita" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm scroll-mt-24">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xl">📰</span>
+            <h4 class="font-bold text-sm text-slate-900">Warta Berita Dakwah Majelis</h4>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-amber-800 font-semibold">20 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Penyaluran Santunan Bulanan untuk 200 Anak Yatim dan Dhuafa</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Amanah titipan infaq para jamaah majelis taklim telah disalurkan secara transparan dan tepat sasaran.</p>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] text-amber-800 font-semibold">14 September 2026</span>
+              <h5 class="font-bold text-slate-900 mt-0.5">Silaturahmi Akbar Jamaah Majlis Al-Ihya Bersama Alim Ulama</h5>
+              <p class="text-[11px] text-slate-600 mt-0.5">Memperkokoh persaudaraan umat dan musyawarah agenda dakwah semester mendatang.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- KAJIAN: ARTIKEL & REKAMAN AUDIO/VIDEO -->
+      <div id="mt-kajian" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm scroll-mt-24">
+        <div class="flex items-center justify-between gap-3 mb-6">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">📖</span>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900">Arsip Kajian: Artikel Tausiyah & Rekaman Audio</h3>
+              <p class="text-slate-500 text-xs">Intisari faidah ilmu syariat yang dapat dibaca dan diunduh oleh jamaah</p>
+            </div>
+          </div>
+          <span class="text-xs bg-emerald-50 text-emerald-800 font-semibold px-2.5 py-1 rounded border border-emerald-200">
+            Tersedia Podcast Audio & PDF
+          </span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">Artikel Intisari</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">Meraih Keberkahan Hidup dengan Istiqomah Dzikir Pagi & Petang</h4>
+              <p class="text-slate-600 text-xs mt-1 leading-relaxed">
+                Penjelasan dalil Al-Qur'an dan Sunnah mengenai benteng penjagaan diri seorang muslim melalui wirid harian yang diajarkan Rasulullah SAW.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+              <span class="text-slate-400 text-[11px]">Durasi Baca: 5 Menit</span>
+              <a href="#mt-live" class="text-amber-800 font-bold hover:underline">Baca Selengkapnya / Unduh PDF 📄</a>
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded">Rekaman Audio Podcast</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">Fadhilah & Adab Memakmurkan Majelis Ilmu Sesuai Hadits Nabawi</h4>
+              <p class="text-slate-600 text-xs mt-1 leading-relaxed">
+                Rekaman audio ceramah berdurasi 35 menit mengenai keutamaan dinaungi malaikat dan diturunkannya sakinah bagi penuntut ilmu.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+              <span class="text-slate-400 text-[11px]">Format: MP3 Audio | 32 MB</span>
+              <button onclick="alert('Simulasi: Memutar rekaman audio tausiyah Majelis Taklim Al-Ihya!')" class="text-emerald-700 font-bold hover:underline cursor-pointer">Putar Audio Tausiyah 🎧</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: KONTAK, LAYANAN JAMAAH & PETA AULA -->
+    <section id="mt-kontak" class="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-amber-800 font-bold text-xs uppercase tracking-wider block mb-1">Sekretariat Majelis</span>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-2">Kontak & Lokasi Aula Majelis Taklim</h3>
+            <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+              Informasi jadwal kajian, pendaftaran jamaah baru, konfirmasi infaq/sedekah, serta pendaftaran ziarah & umroh dapat menghubungi nomor layanan sekretariat.
+            </p>
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <span>📍</span>
+                <span>Aula Utama Majelis Taklim Al-Ihya, Jl. KH. Tubagus Muhammad Falak, Kota Bogor</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>📞</span>
+                <span>Hotline Layanan Jamaah: 0812-XXXX-7777 (WhatsApp Layanan Informasi)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>✉️</span>
+                <span>Email Majelis: majlistalim@majlisalihyabogor.id</span>
+              </div>
+            </div>
+
+            <!-- Tautan Media Sosial Resmi Majelis -->
+            <div id="mt-medsos" class="mt-4 pt-4 border-t border-slate-200">
+              <span class="text-xs font-bold text-slate-700 block mb-2">Tautan Media Sosial Resmi Majelis Taklim:</span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <a href="https://instagram.com" target="_blank" class="bg-pink-50 text-pink-700 border border-pink-200 px-3 py-1.5 rounded-lg hover:bg-pink-100 flex items-center gap-1.5 font-medium">
+                  📸 Instagram @mt.alihyabogor
+                </a>
+                <a href="https://youtube.com" target="_blank" class="bg-rose-50 text-rose-700 border border-rose-200 px-3 py-1.5 rounded-lg hover:bg-rose-100 flex items-center gap-1.5 font-medium">
+                  🎥 YouTube Al-Ihya TV
+                </a>
+                <a href="https://facebook.com" target="_blank" class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-100 flex items-center gap-1.5 font-medium">
+                  📘 Facebook Majelis Al-Ihya
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-56 bg-slate-100 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-center p-4">
+            <span class="text-3xl mb-1">🗺️</span>
+            <span class="font-bold text-slate-800 text-xs sm:text-sm">Peta Lokasi Aula Majelis Taklim</span>
+            <span class="text-slate-500 text-[11px] mt-0.5">Komplek Pendidikan & Dakwah Yayasan Al-Ihya Bogor</span>
+            <a href="https://maps.google.com" target="_blank" class="mt-2.5 text-xs bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800">
+              Buka Peta Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: TAUTAN SILANG (CROSS-LINKS) -->
+    <div id="mt-tautan-silang" class="max-w-6xl mx-auto px-4 py-8 border-t border-slate-200">
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
         <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
         <div class="flex flex-wrap gap-2">
-          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            🏛️ Portal Utama
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            🏛️ Portal Utama (majlisalihyabogor.id)
           </button>
-          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            🕌 Ponpes (pp.)
+          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            🕌 Pondok Pesantren (pp.majlisalihyabogor.id)
           </button>
-          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
-            📖 Madrasah Diniah (md.)
+          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium cursor-pointer">
+            📖 Madrasah Diniah (md.majlisalihyabogor.id)
           </button>
         </div>
       </div>
