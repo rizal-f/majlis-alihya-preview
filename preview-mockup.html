@@ -31,6 +31,13 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 2s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -65,16 +72,16 @@
       <!-- Quick Switcher Buttons -->
       <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-lg border border-slate-700 overflow-x-auto max-w-full">
         <button onclick="switchView('yayasan')" id="tab-yayasan" class="view-btn px-2.5 py-1 rounded font-medium transition-all bg-emerald-600 text-white shadow">
-          🏛️ Majlis Al-Ihya Bogor
+          🏛️ Portal Utama
         </button>
         <button onclick="switchView('ponpes')" id="tab-ponpes" class="view-btn px-2.5 py-1 rounded font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700">
-          🕌 Ponpes
+          🕌 Ponpes (pp.)
         </button>
         <button onclick="switchView('tpa')" id="tab-tpa" class="view-btn px-2.5 py-1 rounded font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700">
-          📖 Madrasah
+          📖 Madrasah (md.)
         </button>
         <button onclick="switchView('majlis')" id="tab-majlis" class="view-btn px-2.5 py-1 rounded font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700">
-          🎙️ Majlis Ta'lim
+          🎙️ Majelis Taklim (mt.)
         </button>
         <button onclick="switchView('ppdb')" id="tab-ppdb" class="view-btn px-2.5 py-1 rounded font-medium transition-all text-amber-300 hover:text-white hover:bg-amber-600/30 border border-amber-500/30">
           📝 Portal PPDB
@@ -88,7 +95,7 @@
   </header>
 
   <!-- ======================================================== -->
-  <!-- VIEW 1: PORTAL YAYASAN INDUK (majlisalihyabogor.id) -->
+  <!-- VIEW 1: PORTAL UTAMA LEMBAGA (majlisalihyabogor.id) -->
   <!-- ======================================================== -->
   <div id="view-yayasan" class="view-container flex-1">
     
@@ -105,11 +112,11 @@
           </div>
         </div>
         <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
-          <a href="#profil-yayasan" class="text-emerald-700 hover:text-emerald-800">Profil Majlis Al-Ihya</a>
-          <a href="#unit-yayasan" class="hover:text-emerald-700">Unit Lembaga</a>
-          <a href="#warta-yayasan" class="hover:text-emerald-700">Berita & Syiar</a>
-          <a href="#agenda-yayasan" class="hover:text-emerald-700">Agenda Kegiatan</a>
-          <a href="#kontak-yayasan" class="hover:text-emerald-700">Kontak</a>
+          <a href="#profil-yayasan" class="text-emerald-700 hover:text-emerald-800">Profil Lembaga</a>
+          <a href="#unit-yayasan" class="hover:text-emerald-700">Unit Sub-Website</a>
+          <a href="#warta-yayasan" class="hover:text-emerald-700">Warta & Berita</a>
+          <a href="#mitra-yayasan" class="hover:text-emerald-700">Kemitraan Mitra</a>
+          <a href="#kontak-yayasan" class="hover:text-emerald-700">Kontak & Lokasi</a>
         </div>
         <button onclick="switchView('ppdb')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-sm transition">
           Portal PPDB Online →
@@ -118,35 +125,73 @@
     </nav>
 
     <!-- Hero Section Yayasan -->
-    <section class="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-950 text-white py-16 sm:py-24 px-4 overflow-hidden">
-      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      <div class="max-w-5xl mx-auto text-center relative z-10">
-        <p class="font-arabic text-amber-300 text-2xl sm:text-3xl mb-3">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <div class="inline-block bg-emerald-800/80 border border-emerald-600/50 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-          ✨ Portal Resmi Majlis Al-Ihya Bogor
+    <section class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 text-white py-16 sm:py-20 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d1fae5_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 bg-emerald-800/80 border border-emerald-500/30 text-amber-300 text-xs px-3.5 py-1.5 rounded-full mb-4 shadow-sm">
+          <span>✨</span>
+          <span class="font-semibold tracking-wide">Portal Informasi Resmi Ekosistem Al-Ihya Bogor</span>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-          Meneguhkan Syiar Dakwah, <br class="hidden sm:block">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-300">
-            Mencetak Generasi Qur'ani Berkarakter
-          </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+          Menebar Syiar, Menjaga Tradisi Keilmuan & Membina Generasi Qur'ani
         </h1>
-        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-          Wadah terpadu pembinaan umat melalui pendidikan Pondok Pesantren, pendidikan formal dan diniyah di Madrasah, serta pengkajian ilmu syariat di Majlis Ta'lim.
+        <p class="text-emerald-100 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+          Pusat integrasi dakwah, pendidikan pesantren salafiyyah, madrasah diniyah, dan pengajian masyarakat di bawah naungan Majlis Al-Ihya Bogor.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <button onclick="switchView('ponpes')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-2.5 rounded-lg shadow-lg text-sm transition">
-            Jelajahi Ponpes Al-Ihya
-          </button>
-          <button onclick="switchView('majlis')" class="bg-emerald-800/80 hover:bg-emerald-800 text-white border border-emerald-600 font-semibold px-5 py-2.5 rounded-lg text-sm transition">
-            Jadwal Kajian Majlis Ta'lim
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#unit-yayasan" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs sm:text-sm px-6 py-3 rounded-lg shadow transition">
+            Jelajahi 3 Unit Lembaga ↓
+          </a>
+          <button onclick="switchView('ppdb')" class="bg-emerald-800/90 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-lg border border-emerald-600 transition">
+            Pendaftaran Santri Baru (PPDB) →
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Hub 3 Sub-Unit Pendidikan (Kartu Navigasi Otonom) -->
-    <section class="max-w-7xl mx-auto px-4 py-12 -mt-8 relative z-20">
+    <!-- Sekilas Profil Lembaga -->
+    <section id="profil-yayasan" class="max-w-7xl mx-auto px-4 py-12">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider block mb-2">Tentang Lembaga</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 leading-tight">
+              Sekilas Profil & Visi Misi Majlis Al-Ihya Bogor
+            </h2>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+              Majlis Al-Ihya Bogor didirikan dengan komitmen teguh untuk menghidupkan nilai-nilai keislaman Ahlussunnah wal Jama'ah melalui pendidikan santri mukim, pembinaan anak usia dini, dan pengajian umum jamaah.
+            </p>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-700">
+              <div class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Visi:</strong> Terwujudnya pusat peradaban Islam yang kokoh dalam tafaqquh fiddin dan berakhlak mulia.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Misi:</strong> Menyelenggarakan pendidikan pesantren salaf modern, membina generasi Al-Qur'an, dan melayani umat.</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-3xl mx-auto mb-3">
+              🏛️
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">Arsitektur Multi-Subdomain Mandiri</h4>
+            <p class="text-slate-500 text-xs mt-2 leading-relaxed">
+              Masing-masing unit memiliki alamat sub-website khusus untuk publikasi program, warta, dan layanan santri yang terisolasi namun terpadu di satu server.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Unit Lembaga (Kartu Akses Cepat Subdomain) -->
+    <section id="unit-yayasan" class="max-w-7xl mx-auto px-4 py-8">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">3 Unit Lembaga Terintegrasi</h2>
+        <p class="text-slate-600 text-xs sm:text-sm">Klik salah satu kartu di bawah untuk membuka simulasi sub-website unit terkait:</p>
+      </div>
+
       <div class="grid md:grid-cols-3 gap-6">
         
         <!-- Unit 1: Ponpes -->
@@ -158,34 +203,34 @@
             <div class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider mb-1">Subdomain Khusus</div>
             <h3 class="text-lg font-bold text-slate-900 mb-2">Pondok Pesantren Al-Ihya</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-              Pendidikan asrama berbasis Kitab Kuning, Tahfidzul Qur'an, dan kurikulum formal modern dengan penanaman akhlaqul karimah.
+              Pendidikan asrama santri berbasis Kitab Kuning Turats, Tahfidzul Qur'an 30 Juz, kurikulum formal, dan bahasa bilingual.
             </p>
             <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-500 mb-4 font-mono">
-              🔗 ponpes.majlisalihyabogor.id
+              🔗 pp.majlisalihyabogor.id
             </div>
           </div>
-          <button onclick="switchView('ponpes')" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center">
-            Buka Portal Ponpes →
+          <button onclick="switchView('ponpes')" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center shadow-sm">
+            Buka Portal Ponpes (pp.) →
           </button>
         </div>
 
-        <!-- Unit 2: TPA -->
+        <!-- Unit 2: Madrasah Diniah -->
         <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
               📖
             </div>
             <div class="text-[11px] font-bold text-teal-700 uppercase tracking-wider mb-1">Subdomain Khusus</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Madrasah Al-Ihya</h3>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Madrasah Diniah Al-Ihya</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-              Pembelajaran Al-Qur'an (Iqro), hafalan surat pendek, doa harian, dan praktik ibadah bagi anak-anak usia dini.
+              Pendidikan Diniyah Takmiliyah, Iqro, tajwid Al-Qur'an, doa harian, dan praktik ibadah bagi anak-anak usia sekolah.
             </p>
             <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-500 mb-4 font-mono">
-              🔗 madrasah.majlisalihyabogor.id
+              🔗 md.majlisalihyabogor.id
             </div>
           </div>
-          <button onclick="switchView('tpa')" class="w-full bg-teal-700 hover:bg-teal-800 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center">
-            Buka Portal Madrasah →
+          <button onclick="switchView('tpa')" class="w-full bg-teal-700 hover:bg-teal-800 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center shadow-sm">
+            Buka Portal Madrasah (md.) →
           </button>
         </div>
 
@@ -196,16 +241,16 @@
               🎙️
             </div>
             <div class="text-[11px] font-bold text-amber-700 uppercase tracking-wider mb-1">Subdomain Khusus</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Majlis Ta'lim Al-Ihya</h3>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Majelis Taklim Al-Ihya</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-              Kajian rutin kitab kuning, pengajian ahad pagi, majlis dzikir & sholawat, serta arsip dokumentasi rekaman kajian keagamaan.
+              Kajian kitab kuning ahad pagi, pengajian ibu-ibu, widget jadwal sholat otomatis, live streaming, dan program rihlah/umroh.
             </p>
             <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-500 mb-4 font-mono">
-              🔗 majlistalim.majlisalihyabogor.id
+              🔗 mt.majlisalihyabogor.id
             </div>
           </div>
-          <button onclick="switchView('majlis')" class="w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center">
-            Buka Portal Majlis Ta'lim →
+          <button onclick="switchView('majlis')" class="w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold py-2.5 rounded-lg transition text-center shadow-sm">
+            Buka Portal Majelis Taklim (mt.) →
           </button>
         </div>
 
@@ -213,7 +258,7 @@
     </section>
 
     <!-- Agregasi Berita & Agenda Terkini -->
-    <section class="max-w-7xl mx-auto px-4 py-8">
+    <section id="warta-yayasan" class="max-w-7xl mx-auto px-4 py-8">
       <div class="flex items-center justify-between mb-6">
         <div>
           <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Warta & Syiar Terkini Majlis Al-Ihya Bogor</h2>
@@ -242,9 +287,9 @@
             🎨 Pawai Santri Cilik
           </div>
           <div class="p-4">
-            <span class="bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded">Unit Madrasah</span>
+            <span class="bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded">Madrasah Diniah</span>
             <span class="text-slate-400 text-[10px] ml-2">12 September 2026</span>
-            <h4 class="font-bold text-slate-900 text-sm mt-2 mb-1">Keceriaan Santri Madrasah Al-Ihya Mengikuti Lomba Mewarnai Kaligrafi</h4>
+            <h4 class="font-bold text-slate-900 text-sm mt-2 mb-1">Keceriaan Santri Madrasah Mengikuti Lomba Mewarnai Kaligrafi</h4>
             <p class="text-slate-600 text-xs line-clamp-2">Menumbuhkan kecintaan terhadap seni Al-Qur'an sejak usia dini dalam peringatan tahun baru Hijriyah.</p>
           </div>
         </div>
@@ -263,11 +308,68 @@
       </div>
     </section>
 
+    <!-- Mitra & Tautan Silang Yayasan -->
+    <section id="mitra-yayasan" class="max-w-7xl mx-auto px-4 py-8 border-t border-slate-200">
+      <div class="bg-gradient-to-r from-emerald-950 to-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+        <div class="space-y-2 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-500/30">
+            🤝 Kemitraan & Afiliasi Lembaga
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold">Yayasan Pendidikan Insan Kamil Bogor</h3>
+          <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
+            Sinergi terpadu dalam penyelenggaraan pendidikan formal, kurikulum keislaman, dan pembinaan generasi Qur'ani yang berakhlak mulia di Kota Bogor.
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-wrap gap-3">
+          <a href="https://insankamilbogor.org" target="_blank" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs px-5 py-3 rounded-xl shadow transition flex items-center gap-2">
+            Kunjungi Website Mitra ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak & Lokasi Peta Terpadu -->
+    <section id="kontak-yayasan" class="max-w-7xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider block mb-1">Sekretariat Pusat</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">Kontak & Lokasi Majlis Al-Ihya Bogor</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+              Silakan menghubungi layanan sekretariat untuk informasi pendaftaran santri baru, jadwal kajian, atau kunjungan silaturahmi.
+            </p>
+            <div class="space-y-2.5 text-xs text-slate-700">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">📍</span>
+                <span>Jl. KH. Tubagus Muhammad Falak No. 10, Loji, Kec. Bogor Barat, Kota Bogor, Jawa Barat 16117</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">📞</span>
+                <span>Hotline Sekretariat: (0251) 832-XXXX / 0812-XXXX-XXXX (WhatsApp Admin)</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">✉️</span>
+                <span>Email Resmi: info@majlisalihyabogor.id</span>
+              </div>
+            </div>
+          </div>
+          <div class="h-48 sm:h-56 bg-slate-100 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-center p-4">
+            <span class="text-3xl mb-2">🗺️</span>
+            <span class="font-bold text-slate-800 text-sm">Peta Interaktif Google Maps</span>
+            <span class="text-slate-500 text-xs mt-1">Koordinat Presisi Majlis Al-Ihya Bogor Terintegrasi</span>
+            <a href="https://maps.google.com" target="_blank" class="mt-3 text-xs bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800">
+              Buka di Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer Yayasan -->
     <footer class="bg-emerald-950 text-white mt-12 py-8 border-t border-emerald-900">
       <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-4 text-xs">
         <div>
-          <div class="font-bold text-sm text-amber-300">MAJLIS AL-IHYA BOGOR BOGOR</div>
+          <div class="font-bold text-sm text-amber-300">MAJLIS AL-IHYA BOGOR</div>
           <p class="text-emerald-200/70">Jl. KH. Tubagus Muhammad Falak, Kota Bogor, Jawa Barat</p>
         </div>
         <div class="text-emerald-200/60 text-right">
@@ -279,7 +381,7 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- VIEW 2: SUB-PORTAL PONPES (ponpes.majlisalihyabogor.id) -->
+  <!-- VIEW 2: SUB-PORTAL PONPES (pp.majlisalihyabogor.id) -->
   <!-- ======================================================== -->
   <div id="view-ponpes" class="view-container flex-1 hidden">
     
@@ -292,14 +394,14 @@
           </div>
           <div>
             <span class="font-bold text-white text-base leading-tight block">PONDOK PESANTREN AL-IHYA</span>
-            <span class="text-emerald-300 text-[11px] font-mono block">ponpes.majlisalihyabogor.id</span>
+            <span class="text-emerald-300 text-[11px] font-mono block">pp.majlisalihyabogor.id</span>
           </div>
         </div>
         <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-emerald-100">
-          <span class="text-amber-300 cursor-pointer">Profil Asrama</span>
-          <span class="cursor-pointer hover:text-white">Kurikulum Kitab</span>
-          <span class="cursor-pointer hover:text-white">Ekstrakurikuler</span>
-          <span class="cursor-pointer hover:text-white">Prestasi Santri</span>
+          <a href="#ponpes-profil" class="text-amber-300 cursor-pointer">Profil Asrama</a>
+          <a href="#ponpes-program" class="cursor-pointer hover:text-white">Kurikulum Kitab</a>
+          <a href="#ponpes-tertib" class="cursor-pointer hover:text-white">Tata Tertib Santri</a>
+          <a href="#ponpes-galeri" class="cursor-pointer hover:text-white">Galeri & Video</a>
         </div>
         <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
           PPDB Ponpes 2026/2027 ↗
@@ -318,13 +420,13 @@
           Memadukan keaslian tradisi keilmuan Islam (Salafiyyah) dengan wawasan sains dan bahasa internasional dalam suasana asrama yang nyaman dan asri.
         </p>
         <button onclick="switchView('ppdb')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-6 py-2.5 rounded-lg shadow-md text-sm">
-          Daftar Santri Baru Sekarang →
+          Daftar Santri Baru Sekarang (PPDB) →
         </button>
       </div>
     </div>
 
     <!-- Ponpes Programs -->
-    <div class="max-w-6xl mx-auto px-4 py-10">
+    <div id="ponpes-program" class="max-w-6xl mx-auto px-4 py-10">
       <h3 class="text-lg font-bold text-slate-900 mb-6 text-center">Program Unggulan Pesantren</h3>
       <div class="grid sm:grid-cols-3 gap-6">
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -334,7 +436,7 @@
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
           <div class="text-2xl mb-2">📚</div>
-          <h4 class="font-bold text-slate-900 text-sm mb-1">Kajian Kitab Kuning</h4>
+          <h4 class="font-bold text-slate-900 text-sm mb-1">Kajian Kitab Kuning Turats</h4>
           <p class="text-slate-600 text-xs leading-relaxed">Pengkajian Fiqih, Nahwu, Shorof, Tauhid, Hadits, dan Akhlak berbasis kitab turats para ulama mu'tabar.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -345,10 +447,99 @@
       </div>
     </div>
 
+    <!-- Tata Tertib Santri Ponpes (Fitur Tambahan Kompetitor) -->
+    <div id="ponpes-tertib" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">📋</span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Tata Tertib & Kedisiplinan Santri Asrama</h3>
+            <p class="text-slate-500 text-xs">Menjaga lingkungan belajar yang kondusif, beradab, dan penuh berkah</p>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <span class="font-bold text-emerald-800 block mb-1">1. Sholat Berjamaah</span>
+            <p class="text-slate-600 leading-relaxed">Wajib mengikuti sholat fardhu berjamaah 5 waktu di masjid pondok dan qiyamul lail berjamaah.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <span class="font-bold text-emerald-800 block mb-1">2. Disiplin Taklim & Halaqah</span>
+            <p class="text-slate-600 leading-relaxed">Hadir tepat waktu dalam setiap sesi pengajian kitab kuning dan halaqah setoran tahfidz.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <span class="font-bold text-emerald-800 block mb-1">3. Larangan Smartphone</span>
+            <p class="text-slate-600 leading-relaxed">Santri dilarang membawa smartphone/gawai pribadi di asrama demi konsentrasi penuh dalam belajar.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <span class="font-bold text-emerald-800 block mb-1">4. Adab & Akhlaq</span>
+            <p class="text-slate-600 leading-relaxed">Menjaga tata krama santun kepada dewan kyai, dewan asatidz, pengurus, serta sesama rekan santri.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galeri Foto & Video YouTube Pesantren -->
+    <div id="ponpes-galeri" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Galeri Foto & Dokumentasi Video</h3>
+          <p class="text-slate-500 text-xs">Dokumentasi suasana kehidupan asrama dan kegiatan santri</p>
+        </div>
+        <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded">Update Terkini</span>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-emerald-900 text-white flex items-center justify-center text-xl font-bold">
+            📷 Suasana Asrama
+          </div>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Kamar Santri & Lingkungan Asri</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Kebersihan dan kenyamanan tempat istirahat santri.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-emerald-800 text-white flex items-center justify-center text-xl font-bold">
+            🎥 Liputan Haul Akbar
+          </div>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Video Dokumentasi Haul Sesepuh</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Penayangan cuplikan siaran resmi YouTube Al-Ihya.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl overflow-hidden border border-slate-200">
+          <div class="h-36 bg-teal-900 text-white flex items-center justify-center text-xl font-bold">
+            📷 Halaqah Tahfidz
+          </div>
+          <div class="p-3">
+            <h5 class="font-bold text-xs text-slate-800">Setoran Hafalan Ba'da Subuh</h5>
+            <p class="text-[11px] text-slate-500 mt-0.5">Bimbingan intensif ustadz pembina tahfidz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tautan Silang (Cross-Links) Antar-Unit -->
+    <div class="max-w-6xl mx-auto px-4 py-8 border-t border-slate-200">
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🏛️ Portal Utama
+          </button>
+          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            📖 Madrasah Diniah (md.)
+          </button>
+          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🎙️ Majelis Taklim (mt.)
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ======================================================== -->
-  <!-- VIEW 3: SUB-PORTAL TPA (madrasah.majlisalihyabogor.id) -->
+  <!-- VIEW 3: SUB-PORTAL MADRASAH DINIAH (md.majlisalihyabogor.id) -->
   <!-- ======================================================== -->
   <div id="view-tpa" class="view-container flex-1 hidden">
     
@@ -359,26 +550,32 @@
             📖
           </div>
           <div>
-            <span class="font-bold text-white text-base leading-tight block">MADRASAH AL-IHYA</span>
-            <span class="text-teal-200 text-[11px] font-mono block">madrasah.majlisalihyabogor.id</span>
+            <span class="font-bold text-white text-base leading-tight block">MADRASAH DINIAH AL-IHYA</span>
+            <span class="text-teal-200 text-[11px] font-mono block">md.majlisalihyabogor.id</span>
           </div>
         </div>
+        <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-teal-100">
+          <a href="#md-program" class="hover:text-white">Program Belajar</a>
+          <a href="#md-tertib" class="hover:text-white">Tata Tertib Murid</a>
+          <a href="#md-galeri" class="hover:text-white">Galeri & Informasi</a>
+        </div>
         <button onclick="switchView('ppdb')" class="bg-teal-400 hover:bg-teal-500 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded shadow">
-          Daftar Santri Madrasah ↗
+          Daftar Santri Madrasah (md.) ↗
         </button>
       </div>
     </nav>
 
     <div class="bg-gradient-to-r from-teal-800 to-teal-700 text-white py-12 px-4 text-center">
-      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Madrasah Al-Ihya Bogor</h1>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Madrasah Diniah Al-Ihya Bogor</h1>
       <p class="text-teal-100 text-sm max-w-lg mx-auto mb-5">Belajar Membaca Al-Qur'an, Doa Harian, dan Ibadah Praktis dengan Ceria dan Penuh Kasih Sayang.</p>
       <div class="inline-flex gap-2 text-xs bg-teal-900/60 p-2 rounded-lg border border-teal-600">
         <span>⏰ Waktu Belajar: Senin - Kamis (15.30 - 17.00 WIB)</span>
       </div>
     </div>
 
-    <div class="max-w-5xl mx-auto px-4 py-10">
-      <h3 class="text-base font-bold text-slate-900 mb-4 text-center">Tingkatan Kelas Belajar Madrasah</h3>
+    <!-- Tingkatan Kelas -->
+    <div id="md-program" class="max-w-5xl mx-auto px-4 py-10">
+      <h3 class="text-base font-bold text-slate-900 mb-4 text-center">Tingkatan Kelas Belajar Madrasah Diniah</h3>
       <div class="grid sm:grid-cols-3 gap-4">
         <div class="bg-white p-4 rounded-xl border border-slate-200">
           <span class="bg-teal-100 text-teal-800 font-bold text-xs px-2 py-0.5 rounded">Kelas A</span>
@@ -398,10 +595,83 @@
       </div>
     </div>
 
+    <!-- Tata Tertib Madrasah Diniah (Fitur Kompetitor) -->
+    <div id="md-tertib" class="max-w-5xl mx-auto px-4 py-6">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <h3 class="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
+          <span>📜</span> Tata Tertib & Ketentuan Santri Madrasah
+        </h3>
+        <p class="text-slate-500 text-xs mb-4">Panduan tertib untuk kelancaran kegiatan belajar mengajar santri diniyah</p>
+        <div class="grid sm:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="font-bold text-teal-800 block mb-0.5">1. Kedisiplinan Waktu</span>
+            <p class="text-slate-600">Santri hadir 10 menit sebelum jam 15.30 WIB untuk membaca doa awal belajar bersama.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="font-bold text-teal-800 block mb-0.5">2. Pakaian Muslim / Muslimah</span>
+            <p class="text-slate-600">Wajib mengenakan baju koko & peci bagi santri putra, serta busana muslimah & jilbab bagi santri putri.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="font-bold text-teal-800 block mb-0.5">3. Perlengkapan Belajar</span>
+            <p class="text-slate-600">Membawa buku prestasi bimbingan, kitab Iqro / mushaf Al-Qur'an masing-masing.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="font-bold text-teal-800 block mb-0.5">4. Akhlak & Kesopanan</span>
+            <p class="text-slate-600">Menghormati ustadz/ustadzah, bersikap ramah sesama teman, serta menjaga kebersihan kelas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galeri & Informasi Madrasah -->
+    <div id="md-galeri" class="max-w-5xl mx-auto px-4 py-6">
+      <h3 class="text-base font-bold text-slate-900 mb-3">Galeri & Informasi Kegiatan Santri</h3>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3">
+          <div class="w-14 h-14 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center text-2xl shrink-0">
+            📸
+          </div>
+          <div>
+            <span class="text-[10px] bg-teal-50 text-teal-700 font-bold px-2 py-0.5 rounded">Galeri Foto</span>
+            <h5 class="font-bold text-xs text-slate-800 mt-1">Pawai Santri Diniyah & Lomba Mewarnai Kaligrafi</h5>
+            <p class="text-[11px] text-slate-500">Momen keceriaan santri menyambut tahun baru Islam.</p>
+          </div>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3">
+          <div class="w-14 h-14 bg-amber-100 text-amber-800 rounded-lg flex items-center justify-center text-2xl shrink-0">
+            📢
+          </div>
+          <div>
+            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded">Pengumuman</span>
+            <h5 class="font-bold text-xs text-slate-800 mt-1">Jadwal Evaluasi & Ujian Kenaikan Jilid</h5>
+            <p class="text-[11px] text-slate-500">Akan dilaksanakan pada pekan ke-4 bulan depan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tautan Silang Madrasah -->
+    <div class="max-w-5xl mx-auto px-4 py-8 border-t border-slate-200">
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🏛️ Portal Utama
+          </button>
+          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🕌 Ponpes (pp.)
+          </button>
+          <button onclick="switchView('majlis')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🎙️ Majelis Taklim (mt.)
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ======================================================== -->
-  <!-- VIEW 4: SUB-PORTAL MAJLIS TA'LIM (majlistalim...) -->
+  <!-- VIEW 4: SUB-PORTAL MAJLIS TA'LIM (mt.majlisalihyabogor.id) -->
   <!-- ======================================================== -->
   <div id="view-majlis" class="view-container flex-1 hidden">
     
@@ -412,24 +682,178 @@
             🎙️
           </div>
           <div>
-            <span class="font-bold text-white text-base leading-tight block">MAJLIS TA'LIM AL-IHYA</span>
-            <span class="text-amber-300 text-[11px] font-mono block">majlistalim.majlisalihyabogor.id</span>
+            <span class="font-bold text-white text-base leading-tight block">MAJELIS TAKLIM AL-IHYA</span>
+            <span class="text-amber-300 text-[11px] font-mono block">mt.majlisalihyabogor.id</span>
           </div>
         </div>
+        <div class="hidden md:flex items-center gap-5 text-xs font-semibold text-amber-100">
+          <a href="#mt-sholat" class="hover:text-amber-300">Jadwal Sholat</a>
+          <a href="#mt-live" class="hover:text-amber-300">Live Streaming</a>
+          <a href="#mt-rihlah" class="hover:text-amber-300">Rihlah & Umroh</a>
+          <a href="#mt-agenda" class="hover:text-amber-300">Agenda Kajian</a>
+        </div>
         <div class="text-xs font-semibold text-amber-200">
-          📍 Masjid Jami' Al-Ihya Bogor
+          📍 Aula Majelis Al-Ihya Bogor
         </div>
       </div>
     </nav>
 
+    <!-- Header Banner Majelis -->
     <div class="bg-gradient-to-r from-amber-950 to-amber-900 text-white py-12 px-4 text-center">
       <p class="font-arabic text-amber-300 text-xl mb-1">مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ</p>
-      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2">Jadwal Pengajian & Kajian Rutin</h1>
-      <p class="text-amber-200 text-xs sm:text-sm max-w-md mx-auto">Terbuka untuk umum jamaah kaum muslimin dan muslimat.</p>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2">Majelis Taklim & Syiar Dakwah Umat</h1>
+      <p class="text-amber-200 text-xs sm:text-sm max-w-md mx-auto">Menyebarkan ilmu syariat, tuntunan ibadah, dan amalan sunnah bagi kaum muslimin & muslimat.</p>
     </div>
 
-    <div class="max-w-4xl mx-auto px-4 py-8">
-      <h3 class="text-base font-bold text-slate-900 mb-4">Agenda Kajian Pekanan</h3>
+    <!-- ======================================================== -->
+    <!-- FITUR UNGGULAN 1: JADWAL SHOLAT OTOMATIS KOTA BOGOR (LIVE) -->
+    <!-- ======================================================== -->
+    <div id="mt-sholat" class="max-w-4xl mx-auto px-4 -mt-6">
+      <div class="bg-white rounded-2xl p-5 shadow-xl border border-amber-200">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🕌</span>
+            <div>
+              <h3 class="font-extrabold text-sm text-slate-900">Jadwal Sholat Hari Ini — Wilayah Kota Bogor</h3>
+              <p class="text-[11px] text-slate-500">Sinkronisasi Otomatis Hisab Kemenag RI (WIB)</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Waktu Presisi Real-Time
+          </span>
+        </div>
+
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 text-center">
+          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            <span class="text-[10px] text-slate-500 block font-medium">Imsak</span>
+            <span class="text-sm font-extrabold text-slate-800">04:27</span>
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            <span class="text-[10px] text-slate-500 block font-medium">Subuh</span>
+            <span class="text-sm font-extrabold text-slate-800">04:37</span>
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            <span class="text-[10px] text-slate-500 block font-medium">Terbit</span>
+            <span class="text-sm font-extrabold text-slate-800">05:49</span>
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            <span class="text-[10px] text-slate-500 block font-medium">Dzuhur</span>
+            <span class="text-sm font-extrabold text-slate-800">11:58</span>
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            <span class="text-[10px] text-slate-500 block font-medium">Ashar</span>
+            <span class="text-sm font-extrabold text-slate-800">15:10</span>
+          </div>
+          <div class="bg-amber-100 p-2.5 rounded-xl border border-amber-300 ring-2 ring-amber-400">
+            <span class="text-[10px] text-amber-900 block font-extrabold">Maghrib</span>
+            <span class="text-sm font-extrabold text-amber-950">18:01</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- FITUR UNGGULAN 2: LIVE STREAMING YOUTUBE PENGAJIAN -->
+    <!-- ======================================================== -->
+    <div id="mt-live" class="max-w-4xl mx-auto px-4 py-8">
+      <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 bg-rose-600 text-white text-xs font-extrabold px-3 py-1 rounded-full animate-pulse">
+              🔴 SIARAN LANGSUNG (LIVE STREAMING)
+            </span>
+            <span class="text-xs text-slate-400 font-mono">YouTube Live Al-Ihya</span>
+          </div>
+          <span class="text-xs text-slate-300">👥 1.240 Jamaah Online Sedang Menyimak</span>
+        </div>
+
+        <!-- Video Player Mockup Frame -->
+        <div class="relative bg-black rounded-xl aspect-video overflow-hidden border border-slate-800 flex flex-col items-center justify-center p-6 text-center group cursor-pointer">
+          <div class="w-16 h-16 rounded-full bg-rose-600 text-white flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition">
+            ▶
+          </div>
+          <h4 class="font-extrabold text-base sm:text-xl text-white mt-4 max-w-lg">
+            Kajian Rutin Ahad Pagi: Bedah Kitab Riyadhis Shalihin
+          </h4>
+          <p class="text-slate-400 text-xs sm:text-sm mt-1">Bersama Pengasuh Majlis Al-Ihya Bogor</p>
+          <div class="absolute bottom-3 left-3 bg-black/70 px-2.5 py-1 rounded text-[11px] font-mono text-emerald-400">
+            ● Kualitas HD 1080p | Suara Jernih
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <p class="text-xs text-slate-400">Siaran ini juga direkam secara otomatis dan dapat disimak kembali di kanal YouTube resmi.</p>
+          <div class="flex gap-2">
+            <button onclick="alert('Simulasi: Menuju siaran YouTube Channel Majlis Al-Ihya!')" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+              📺 Buka di YouTube ↗
+            </button>
+            <button onclick="alert('Link kajian berhasil disalin untuk dibagikan ke grup WhatsApp jamaah!')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3.5 py-2 rounded-lg border border-slate-700 transition">
+              🔗 Bagikan Kajian
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- FITUR UNGGULAN 3: PROGRAM RIHLAH & UMROH AL-IHYA -->
+    <!-- ======================================================== -->
+    <div id="mt-rihlah" class="max-w-4xl mx-auto px-4 py-6">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Program Khusus Jamaah</span>
+        <h3 class="text-lg font-bold text-slate-900">Program Rihlah Ilmiah, Ziarah Wali & Umroh Akbar</h3>
+        <p class="text-slate-500 text-xs">Perjalanan ibadah berkah bersama para asatidz dan pembimbing Majlis Al-Ihya</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        
+        <!-- Paket 1: Ziarah Wali -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="inline-block bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded mb-2">
+              Jawa Barat & Banten
+            </div>
+            <h4 class="font-bold text-slate-900 text-sm">Rihlah Ilmiah & Ziarah Maqam Auliya</h4>
+            <p class="text-slate-600 text-xs mt-1.5 leading-relaxed">
+              Program ziarah berkah ke makam para wali dan ulama pejuang dakwah di Banten dan Cirebon disertai tausiyah di sepanjang perjalanan.
+            </p>
+            <div class="mt-3 space-y-1 text-[11px] text-slate-500">
+              <div>📅 Jadwal: Akhir Bulan Depan (3 Hari 2 Malam)</div>
+              <div>🚌 Fasilitas: Bus Pariwisata AC, Hotel & Konsumsi</div>
+            </div>
+          </div>
+          <button onclick="alert('Simulasi: Menghubungi admin pendaftaran Rihlah Ziarah Majlis Al-Ihya!')" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2 rounded-lg transition">
+            Info Detail & Pendaftaran Rihlah →
+          </button>
+        </div>
+
+        <!-- Paket 2: Umroh Akbar -->
+        <div class="bg-gradient-to-br from-amber-50 to-amber-100 p-5 rounded-xl border border-amber-300 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="inline-block bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded mb-2">
+              🌟 Program Utama
+            </div>
+            <h4 class="font-bold text-slate-900 text-sm">Paket Umroh Akbar 12 Hari Bersama Asatidz</h4>
+            <p class="text-slate-700 text-xs mt-1.5 leading-relaxed">
+              Ibadah Umroh khusyuk dengan bimbingan manasik intensif, penerbangan direct Saudia Airlines, dan hotel ring 1 dekat Masjidil Haram.
+            </p>
+            <div class="mt-3 space-y-1 text-[11px] text-amber-950 font-medium">
+              <div>✈️ Maskapai: Saudia Airlines (Direct Jakarta - Jeddah)</div>
+              <div>🏨 Hotel: Bintang 4 Ring 1 Makkah & Madinah</div>
+            </div>
+          </div>
+          <button onclick="alert('Simulasi: Menghubungi panitia pendaftaran Umroh Akbar Majlis Al-Ihya!')" class="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2 rounded-lg transition shadow">
+            Konsultasi Pendaftaran Umroh (WA) ↗
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Agenda Kajian Rutin -->
+    <div id="mt-agenda" class="max-w-4xl mx-auto px-4 py-6">
+      <h3 class="text-base font-bold text-slate-900 mb-4">Agenda Kajian Pekanan & Bulanan</h3>
       <div class="space-y-3">
         <div class="bg-white p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 shadow-sm">
           <div>
@@ -438,7 +862,7 @@
             <p class="text-slate-500 text-xs">Pukul 07.30 - 09.00 WIB bersama Pengasuh Majlis Al-Ihya Bogor</p>
           </div>
           <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2.5 py-1 rounded border border-emerald-200">
-            🟢 Tersedia Streaming Audio
+            🟢 Siaran Langsung YouTube
           </span>
         </div>
 
@@ -451,6 +875,24 @@
           <span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2.5 py-1 rounded">
             Tatap Muka
           </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tautan Silang Majelis Taklim -->
+    <div class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-200">
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <span class="font-semibold text-slate-700">Tautan Silang Antar Unit Lembaga:</span>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchView('yayasan')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🏛️ Portal Utama
+          </button>
+          <button onclick="switchView('ponpes')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            🕌 Ponpes (pp.)
+          </button>
+          <button onclick="switchView('tpa')" class="bg-white px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 font-medium">
+            📖 Madrasah Diniah (md.)
+          </button>
         </div>
       </div>
     </div>
@@ -516,41 +958,41 @@
             <label class="block text-xs font-semibold text-slate-700 mb-1">Pilih Lembaga Pendidikan Tujuan *</label>
             <select id="reg-unit" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:ring-2 focus:ring-emerald-500">
               <option value="ponpes">Pondok Pesantren Al-Ihya (Tingkat MTs / MA / Asrama)</option>
-              <option value="tpa">Madrasah Al-Ihya (Tingkat Ibtidaiyah/Diniyah)</option>
+              <option value="tpa">Madrasah Diniah Al-Ihya (Tingkat Diniyah Takmiliyah)</option>
             </select>
           </div>
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Lengkap Calon Santri *</label>
-              <input type="text" id="reg-name" value="Ahmad Zaki Falak" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Lengkap Santri *</label>
+              <input type="text" id="reg-name" value="Ahmad Zaki Falak" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">NISN (Nomor Induk Siswa Nasional)</label>
-              <input type="text" id="reg-nisn" value="0098234123" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nomor Induk Kependudukan (NIK) *</label>
+              <input type="text" id="reg-nik" value="3271041508120002" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
             </div>
           </div>
 
           <div class="grid sm:grid-cols-3 gap-4">
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1">Jenis Kelamin</label>
-              <select id="reg-gender" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
-                <option value="L">Laki-laki (Ikhwan)</option>
-                <option value="P">Perempuan (Akhwat)</option>
+              <select class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
+                <option>Laki-laki</option>
+                <option>Perempuan</option>
               </select>
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1">Tempat Lahir</label>
-              <input type="text" id="reg-pob" value="Bogor" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
+              <input type="text" value="Bogor" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1">Tanggal Lahir</label>
-              <input type="date" id="reg-dob" value="2012-05-18" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
+              <input type="date" value="2012-08-15" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg p-2.5">
             </div>
           </div>
 
           <div class="pt-4 flex justify-end">
-            <button onclick="goToStep(2)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg">
+            <button onclick="goToStep(2)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg shadow transition">
               Lanjut ke Data Orang Tua →
             </button>
           </div>
@@ -587,7 +1029,7 @@
             <button onclick="goToStep(1)" class="bg-slate-200 text-slate-700 font-semibold text-xs px-4 py-2.5 rounded-lg">
               ← Kembali
             </button>
-            <button onclick="goToStep(3)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg">
+            <button onclick="goToStep(3)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg shadow transition">
               Lanjut ke Upload Berkas →
             </button>
           </div>
@@ -636,7 +1078,7 @@
             <button onclick="goToStep(2)" class="bg-slate-200 text-slate-700 font-semibold text-xs px-4 py-2.5 rounded-lg">
               ← Kembali
             </button>
-            <button onclick="goToStep(4)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-6 py-2.5 rounded-lg shadow">
+            <button onclick="goToStep(4)" class="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-6 py-2.5 rounded-lg shadow transition">
               Kirim Formulir & Terbitkan Kartu Ujian →
             </button>
           </div>
@@ -657,7 +1099,7 @@
                 <div class="w-8 h-8 rounded bg-emerald-900 text-amber-300 flex items-center justify-center font-bold text-sm">M</div>
                 <div>
                   <span class="font-extrabold text-xs block uppercase tracking-wider">KARTU PESERTA PPDB ONLINE</span>
-                  <span class="text-[10px] text-slate-500 block">MAJLIS AL-IHYA BOGOR BOGOR 2026/2027</span>
+                  <span class="text-[10px] text-slate-500 block">MAJLIS AL-IHYA BOGOR 2026/2027</span>
                 </div>
               </div>
               <div class="text-right">
@@ -716,7 +1158,7 @@
 
         <div class="flex gap-2 mb-6">
           <input type="text" id="input-check-reg" value="REG-PONPES-2026-0089" class="flex-1 text-xs sm:text-sm font-mono border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500">
-          <button onclick="simulateCheckStatus()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg">
+          <button onclick="simulateCheckStatus()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition">
             Cari Data
           </button>
         </div>
@@ -749,126 +1191,128 @@
       <!-- Admin Sidebar -->
       <aside class="w-64 bg-slate-950 border-r border-slate-800 min-h-screen p-4 hidden md:block">
         <div class="flex items-center gap-2 mb-6 px-2">
-          <div class="w-8 h-8 rounded bg-emerald-600 font-bold flex items-center justify-center text-white">A</div>
+          <div class="w-8 h-8 rounded bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">
+            ⚙️
+          </div>
           <div>
-            <span class="font-extrabold text-white text-xs block">CMS AL-IHYA ADMIN</span>
-            <span class="text-[10px] text-emerald-400 font-mono">Super Admin Pusat</span>
+            <h4 class="font-bold text-sm text-white leading-tight">Back-Office CMS</h4>
+            <span class="text-[10px] text-slate-400 font-mono">Multi-Role System</span>
           </div>
         </div>
 
-        <div class="text-[10px] uppercase font-bold text-slate-500 px-2 mb-2 tracking-wider">Navigasi Multi-Unit</div>
-        <div class="space-y-1 text-xs">
-          <button class="w-full text-left px-3 py-2 rounded bg-emerald-600 text-white font-semibold">📊 Dashboard Ikhtisar</button>
-          <button class="w-full text-left px-3 py-2 rounded text-slate-400 hover:text-white hover:bg-slate-800">📝 Kelola Berita & Artikel</button>
-          <button class="w-full text-left px-3 py-2 rounded text-slate-400 hover:text-white hover:bg-slate-800">🖼️ Galeri Foto & Video</button>
-          <button class="w-full text-left px-3 py-2 rounded text-slate-400 hover:text-white hover:bg-slate-800">📅 Agenda Kajian & Kalender</button>
-          <button class="w-full text-left px-3 py-2 rounded text-amber-400 hover:bg-amber-950/40 font-bold">🎓 Data PPDB Masuk (12)</button>
-          <button class="w-full text-left px-3 py-2 rounded text-slate-400 hover:text-white hover:bg-slate-800">👥 Pengguna & Role Unit</button>
+        <div class="mb-6">
+          <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-2">Simulasi Hak Akses Akun</label>
+          <select id="admin-role-select" onchange="simulateRoleChange()" class="w-full bg-slate-800 border border-slate-700 text-xs rounded-lg p-2 text-emerald-400 font-medium focus:ring-1 focus:ring-emerald-500">
+            <option value="super">👑 Super Admin Yayasan (Akses Penuh)</option>
+            <option value="ponpes">🕌 Operator Pondok Pesantren</option>
+            <option value="madrasah">📖 Operator Madrasah Diniah</option>
+            <option value="majlis">🎙️ Operator Majelis Taklim</option>
+          </select>
         </div>
+
+        <nav class="space-y-1 text-xs">
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-emerald-700 text-white font-medium">
+            <span>📊</span> Dashboard Ringkasan
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition">
+            <span>📝</span> Kelola Warta & Berita
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition">
+            <span>🖼️</span> Galeri Foto & Video
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition">
+            <span>🕌</span> Jadwal Sholat & Kajian
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition">
+            <span>🎓</span> Data Pendaftar PPDB
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition">
+            <span>👥</span> Manajemen Operator
+          </a>
+        </nav>
       </aside>
 
       <!-- Admin Main Content -->
-      <main class="flex-1 p-4 sm:p-6 overflow-x-auto">
-        
-        <!-- Header Controls -->
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+      <main class="flex-1 p-6 sm:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
           <div>
-            <h2 class="text-xl font-bold text-white">Dashboard Manajemen Konten & PPDB</h2>
-            <p class="text-xs text-slate-400">Simulasi antarmuka admin pengelola website Majlis Al-Ihya Bogor</p>
+            <span id="role-badge" class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block">
+              Super Admin Mode
+            </span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Dashboard Manajemen Konten Terpadu</h2>
+            <p class="text-slate-400 text-xs">Majlis Al-Ihya Bogor — Sistem Terisolasi Per-Unit Lembaga</p>
+          </div>
+          <button onclick="switchView('yayasan')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-3.5 py-2 rounded-lg border border-slate-700 transition">
+            ← Kembali ke Website Publik
+          </button>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80">
+            <span class="text-xs text-slate-400 block">Total Pendaftar PPDB</span>
+            <span class="text-xl sm:text-2xl font-extrabold text-white mt-1 block">89</span>
+            <span class="text-[10px] text-emerald-400">● 12 Berkas Baru</span>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80">
+            <span class="text-xs text-slate-400 block">Total Artikel & Warta</span>
+            <span class="text-xl sm:text-2xl font-extrabold text-white mt-1 block">34</span>
+            <span class="text-[10px] text-slate-400">Lintas 3 Unit</span>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80">
+            <span class="text-xs text-slate-400 block">Jadwal Sholat</span>
+            <span class="text-xl sm:text-2xl font-extrabold text-amber-400 mt-1 block">Otomatis</span>
+            <span class="text-[10px] text-emerald-400">● Sinkron Kemenag</span>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80">
+            <span class="text-xs text-slate-400 block">Kapasitas Storage</span>
+            <span class="text-xl sm:text-2xl font-extrabold text-teal-400 mt-1 block">1.8 / 50 GB</span>
+            <span class="text-[10px] text-slate-400">NVMe SSD Cepat</span>
+          </div>
+        </div>
+
+        <!-- PPDB Data Table Simulation -->
+        <div class="bg-slate-800/60 rounded-xl border border-slate-700/80 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <h4 class="font-bold text-sm text-white">Data Calon Santri Terbaru (Modul PPDB Online)</h4>
+            <div class="flex gap-2">
+              <button onclick="alert('Simulasi: Berhasil mengekspor 89 data pendaftar ke format Excel (.xlsx)!')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded flex items-center gap-1 shadow transition">
+                📊 Export Excel
+              </button>
+            </div>
           </div>
           
-          <!-- Unit Switcher Filter for Admin -->
-          <div class="flex items-center gap-2 bg-slate-950 p-1.5 rounded-lg border border-slate-800 text-xs">
-            <span class="text-slate-400 pl-2">Filter Unit:</span>
-            <select class="bg-slate-800 text-white border border-slate-700 rounded px-2 py-1 text-xs">
-              <option>Semua Unit (Majlis Al-Ihya Bogor)</option>
-              <option>Khusus Pondok Pesantren</option>
-              <option>Khusus Madrasah</option>
-              <option>Khusus Majlis Ta'lim</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Metric Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block">Total Pendaftar PPDB</span>
-            <span class="text-2xl font-extrabold text-amber-400">128</span>
-            <span class="text-[10px] text-emerald-400 block mt-1">↑ +14 pekan ini</span>
-          </div>
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block">Berkas Terverifikasi</span>
-            <span class="text-2xl font-extrabold text-emerald-400">94</span>
-            <span class="text-[10px] text-slate-400 block mt-1">Siap Ujian Masuk</span>
-          </div>
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block">Total Berita Terbit</span>
-            <span class="text-2xl font-extrabold text-white">36</span>
-            <span class="text-[10px] text-slate-400 block mt-1">Di 4 Subdomain</span>
-          </div>
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block">Kunjungan Web</span>
-            <span class="text-2xl font-extrabold text-teal-400">4.2K</span>
-            <span class="text-[10px] text-slate-400 block mt-1">Pengunjung/Bulan</span>
-          </div>
-        </div>
-
-        <!-- PPDB Verification Table in Admin -->
-        <div class="bg-slate-950 rounded-xl border border-slate-800 p-4">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-bold text-sm text-white flex items-center gap-2">
-              <span>📋 Verifikasi Pendaftar Santri Baru (PPDB Online)</span>
-              <span class="bg-emerald-500/20 text-emerald-400 text-[10px] px-2 py-0.5 rounded font-mono">Live Data</span>
-            </h3>
-            <button onclick="alert('Simulasi: Export 128 Data Calon Santri ke format Excel (.xlsx) berhasil diunduh!')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-1.5 rounded flex items-center gap-1.5">
-              📊 Export ke Excel
-            </button>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs text-slate-300">
-              <thead class="bg-slate-900 text-slate-400 text-[11px] uppercase border-b border-slate-800">
+          <div class="overflow-x-auto text-xs">
+            <table class="w-full text-left">
+              <thead class="bg-slate-900/80 text-slate-400 text-[11px] uppercase border-b border-slate-700">
                 <tr>
-                  <th class="py-2.5 px-3">No. Registrasi</th>
-                  <th class="py-2.5 px-3">Nama Santri</th>
-                  <th class="py-2.5 px-3">Pilihan Unit</th>
-                  <th class="py-2.5 px-3">WhatsApp Wali</th>
-                  <th class="py-2.5 px-3">Status Berkas</th>
-                  <th class="py-2.5 px-3 text-right">Aksi Admin</th>
+                  <th class="p-2.5">No. Registrasi</th>
+                  <th class="p-2.5">Nama Santri</th>
+                  <th class="p-2.5">Unit Tujuan</th>
+                  <th class="p-2.5">Wali Santri</th>
+                  <th class="p-2.5">Status</th>
+                  <th class="p-2.5 text-right">Aksi Panitia</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-800/60 font-medium">
-                <tr class="hover:bg-slate-900/50">
-                  <td class="py-3 px-3 font-mono text-emerald-400">REG-PONPES-2026-0089</td>
-                  <td class="py-3 px-3 text-white font-semibold">Ahmad Zaki Falak</td>
-                  <td class="py-3 px-3"><span class="bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded text-[10px]">Ponpes</span></td>
-                  <td class="py-3 px-3">081298765432</td>
-                  <td class="py-3 px-3"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Terverifikasi</span></td>
-                  <td class="py-3 px-3 text-right">
-                    <button class="bg-slate-800 hover:bg-slate-700 text-white px-2 py-1 rounded text-[10px] mr-1">Detail</button>
-                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded text-[10px]">Lolos</button>
+              <tbody class="divide-y divide-slate-700/60 text-slate-300">
+                <tr>
+                  <td class="p-2.5 font-mono text-emerald-400">REG-PONPES-2026-0089</td>
+                  <td class="p-2.5 font-medium text-white">Ahmad Zaki Falak</td>
+                  <td class="p-2.5">Ponpes Al-Ihya (pp.)</td>
+                  <td class="p-2.5">H. Muhammad Ridwan</td>
+                  <td class="p-2.5"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-bold">Terverifikasi</span></td>
+                  <td class="p-2.5 text-right">
+                    <button onclick="alert('Simulasi: Membuka formulir verifikasi berkas Ahmad Zaki Falak!')" class="text-emerald-400 hover:underline">Periksa Berkas</button>
                   </td>
                 </tr>
-                <tr class="hover:bg-slate-900/50">
-                  <td class="py-3 px-3 font-mono text-teal-400">REG-MDR-2026-0042</td>
-                  <td class="py-3 px-3 text-white font-semibold">Fathimah Azzahra</td>
-                  <td class="py-3 px-3"><span class="bg-teal-900/80 text-teal-300 px-2 py-0.5 rounded text-[10px]">Madrasah</span></td>
-                  <td class="py-3 px-3">085711223344</td>
-                  <td class="py-3 px-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded text-[10px]">Menunggu Verifikasi</span></td>
-                  <td class="py-3 px-3 text-right">
-                    <button class="bg-slate-800 hover:bg-slate-700 text-white px-2 py-1 rounded text-[10px] mr-1">Detail</button>
-                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded text-[10px]">Verifikasi</button>
-                  </td>
-                </tr>
-                <tr class="hover:bg-slate-900/50">
-                  <td class="py-3 px-3 font-mono text-emerald-400">REG-PONPES-2026-0088</td>
-                  <td class="py-3 px-3 text-white font-semibold">Muhammad Haikal</td>
-                  <td class="py-3 px-3"><span class="bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded text-[10px]">Ponpes</span></td>
-                  <td class="py-3 px-3">087855443322</td>
-                  <td class="py-3 px-3"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Terverifikasi</span></td>
-                  <td class="py-3 px-3 text-right">
-                    <button class="bg-slate-800 hover:bg-slate-700 text-white px-2 py-1 rounded text-[10px] mr-1">Detail</button>
-                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded text-[10px]">Lolos</button>
+                <tr>
+                  <td class="p-2.5 font-mono text-emerald-400">REG-MD-2026-0042</td>
+                  <td class="p-2.5 font-medium text-white">Fatimah Az-Zahra</td>
+                  <td class="p-2.5">Madrasah Diniah (md.)</td>
+                  <td class="p-2.5">Ust. Abdullah Faqih</td>
+                  <td class="p-2.5"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded text-[10px] font-bold">Menunggu Validasi</span></td>
+                  <td class="p-2.5 text-right">
+                    <button onclick="alert('Simulasi: Membuka formulir validasi Fatimah Az-Zahra!')" class="text-amber-400 hover:underline">Validasi</button>
                   </td>
                 </tr>
               </tbody>
@@ -910,13 +1354,13 @@
       if (viewName === 'yayasan') {
         urlBar.innerText = 'majlisalihyabogor.id';
       } else if (viewName === 'ponpes') {
-        urlBar.innerText = 'ponpes.majlisalihyabogor.id';
+        urlBar.innerText = 'pp.majlisalihyabogor.id';
       } else if (viewName === 'tpa') {
-        urlBar.innerText = 'madrasah.majlisalihyabogor.id';
+        urlBar.innerText = 'md.majlisalihyabogor.id';
       } else if (viewName === 'majlis') {
-        urlBar.innerText = 'majlistalim.majlisalihyabogor.id';
+        urlBar.innerText = 'mt.majlisalihyabogor.id';
       } else if (viewName === 'ppdb') {
-        urlBar.innerText = 'ponpes.majlisalihyabogor.id/ppdb-online';
+        urlBar.innerText = 'pp.majlisalihyabogor.id/ppdb-online';
       } else if (viewName === 'admin') {
         urlBar.innerText = 'admin.majlisalihyabogor.id/dashboard';
       }
@@ -957,7 +1401,7 @@
       }
     }
 
-    // PPDB Internal Tab (Daftar vs Cek Status)
+    // Toggle Tab Pendaftaran vs Cek Status PPDB
     function togglePPDBTab(tabName) {
       const tabDaftar = document.getElementById('ppdb-tab-daftar');
       const tabStatus = document.getElementById('ppdb-tab-status');
@@ -977,16 +1421,35 @@
       }
     }
 
-    // Simulate Check Status
+    // Simulate Check Status PPDB
     function simulateCheckStatus() {
-      const input = document.getElementById('input-check-reg').value;
-      const res = document.getElementById('status-result');
-      if (input.trim() === '') {
-        alert('Silakan masukkan nomor registrasi!');
-        return;
+      const regInput = document.getElementById('input-check-reg').value.trim();
+      const resultBox = document.getElementById('status-result');
+      if (regInput) {
+        resultBox.classList.remove('hidden');
+        alert('Data ditemukan untuk nomor registrasi: ' + regInput);
+      } else {
+        alert('Harap masukkan nomor registrasi terlebih dahulu!');
       }
-      res.classList.remove('hidden');
-      alert('Data pendaftaran ditemukan untuk: ' + input);
+    }
+
+    // Simulate Role Change in CMS Admin
+    function simulateRoleChange() {
+      const role = document.getElementById('admin-role-select').value;
+      const badge = document.getElementById('role-badge');
+      if (role === 'super') {
+        badge.innerText = 'Super Admin Mode';
+        badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block';
+      } else if (role === 'ponpes') {
+        badge.innerText = 'Operator Ponpes (Akses Terisolasi pp.)';
+        badge.className = 'bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block';
+      } else if (role === 'madrasah') {
+        badge.innerText = 'Operator Madrasah Diniah (Akses Terisolasi md.)';
+        badge.className = 'bg-teal-500/20 text-teal-400 border border-teal-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block';
+      } else if (role === 'majlis') {
+        badge.innerText = 'Operator Majelis Taklim (Akses Terisolasi mt.)';
+        badge.className = 'bg-purple-500/20 text-purple-400 border border-purple-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block';
+      }
     }
   </script>
 </body>
